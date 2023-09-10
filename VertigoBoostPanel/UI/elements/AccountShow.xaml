@@ -1,0 +1,275 @@
+<UserControl
+	x:Class="VertigoBoostPanel.UI.elements.AccountShow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:VertigoBoostPanel.UI.elements" xmlns:System="clr-namespace:System;assembly=mscorlib"
+	FrameworkElement.Height="16.5">
+	<Grid
+		Cursor="Hand"
+		MouseEnter="Grid_MouseEnter"
+		MouseLeave="Grid_MouseLeave"
+		MouseDown="Grid_MouseDown">
+		<Rectangle
+			Name="naVodka"
+			Shape.Fill="#FF005DFF"
+			Opacity="0"
+			FrameworkElement.Margin="0,0,4,0" />
+		<Label
+			Name="label_Copy4"
+			ContentControl.Content="login"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="132"
+			Control.Foreground="#FFFFFFFF"
+			Control.HorizontalContentAlignment="Left"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="10"
+			FrameworkElement.Height="16"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="0,0,0,0"
+			UseLayoutRounding="False"
+			FrameworkElement.Margin="33,0,0,0" />
+		<Label
+			Name="primeLabel"
+			ContentControl.Content="No"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="36"
+			Control.Foreground="#FFFB1515"
+			Control.FontFamily="Montserrat SemiBold"
+			Control.FontSize="10"
+			FrameworkElement.Height="16"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="0,0,0,0"
+			UseLayoutRounding="False"
+			FrameworkElement.Margin="412,0,0,0"
+			Control.HorizontalContentAlignment="Center" />
+		<Label
+			Name="label_Copy1"
+			ContentControl.Content="9999"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="35"
+			Control.Foreground="#FFFFFFFF"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="10"
+			FrameworkElement.Height="16"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="0,0,0,0"
+			UseLayoutRounding="False"
+			FrameworkElement.Margin="372.167,0,0,0" />
+		<Label
+			Name="label_Copy2"
+			ContentControl.Content="9999"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="35"
+			Control.Foreground="#FFFFFFFF"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="10"
+			FrameworkElement.Height="16"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="0,0,0,0"
+			UseLayoutRounding="False"
+			FrameworkElement.Margin="335,0,0,0" />
+		<Label
+			Name="label_Copy3"
+			ContentControl.Content="40"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="30"
+			Control.Foreground="#FFFFFFFF"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="10"
+			FrameworkElement.Height="16"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="0,0,0,0"
+			UseLayoutRounding="False"
+			FrameworkElement.Margin="200.438,0,0,0"
+			RenderTransformOrigin="0.435,0.5" />
+		<Image
+			Name="rank2x2"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="16"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/Resources/img/ranks/18.png"
+			Panel.ZIndex="20"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="285,0,132,0" />
+		<Image
+			Name="rank5x5"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="16"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/Resources/img/ranks/18.png"
+			Panel.ZIndex="20"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="238,0,179,0" />
+		<Ellipse
+			Name="StatusOvalchik"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="5"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="5"
+			FrameworkElement.Margin="24,0,0,0"
+			Shape.Fill="#FFFF0000" />
+		<CheckBox
+			Name="СheckBox"
+			FrameworkElement.VerticalAlignment="Top"
+			RenderTransformOrigin="0.5,0.5"
+			Control.Background="#FF636363"
+			FrameworkElement.Height="16"
+			Cursor="Hand"
+			FrameworkElement.Margin="1,0,437,0"
+			ContentControl.Content="ddd"
+			Control.BorderBrush="{x:Null}"
+			Control.Foreground="{x:Null}"
+			Checked="Checked"
+			PreviewMouseRightButtonDown="checkBox_0_PreviewMouseRightButtonDown"
+			Unchecked="Unchecked">
+			<Control.Template>
+				<ControlTemplate
+					TargetType="{x:Type CheckBox}">
+					<Grid>
+						<Rectangle
+							Name="main_checker"
+							RadiusX="2 px"
+							RadiusY="2 px"
+							FrameworkElement.Width="13.5px"
+							FrameworkElement.Height="13.5px"
+							Shape.StrokeThickness="1"
+							Shape.Stroke="#FF444444"
+							Shape.Fill="#FF1B1C21" />
+						<Grid
+							Name="Checker"
+							UIElement.Visibility="Collapsed">
+							<Rectangle
+								RadiusX="2 px"
+								RadiusY="2 px"
+								FrameworkElement.Width="13.5px"
+								FrameworkElement.Height="13.5px"
+								Shape.StrokeThickness="1"
+								Shape.Stroke="#FF2E2E2E"
+								Shape.Fill="#FF2E2E2E" />
+							<Image
+								FrameworkElement.Width="11 px"
+								FrameworkElement.Height="11 px"
+								RenderOptions.BitmapScalingMode="Fant"
+								Panel.ZIndex="3"
+								Image.Source="{Binding AccountMark}" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="Checker"
+								Property="UIElement.Visibility">
+								<Setter.Value>
+									<Visibility>Visible</Visibility>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="main_checker"
+								Property="Shape.Fill">
+								<Setter.Value>
+									<Brush>#27292F</Brush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="main_checker"
+								Property="UIElement.Opacity">
+								<Setter.Value>
+									<System:Double>1</System:Double>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Control.Template>
+		</CheckBox>
+		<Image
+			Name="mark_0"
+			UIElement.Visibility="Visible"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/Resources/marks/0.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="180,2,259,0"
+			RenderTransformOrigin="0.833,0.5"
+			MouseDown="mark_MouseDown" />
+		<Image
+			Name="mark_1"
+			UIElement.Visibility="Hidden"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/VertigoBoostPanel;component/Resources/marks/1.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="157,2,282,0"
+			RenderTransformOrigin="0.833,0.5"
+			MouseDown="mark_MouseDown" />
+		<Image
+			Name="mark_2"
+			UIElement.Visibility="Hidden"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/VertigoBoostPanel;component/Resources/marks/2.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="134,2,305,0"
+			RenderTransformOrigin="0.833,0.5"
+			MouseDown="mark_MouseDown" />
+		<Image
+			Name="mark_3"
+			UIElement.Visibility="Hidden"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/VertigoBoostPanel;component/Resources/marks/3.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="111,2,328,0"
+			RenderTransformOrigin="0.833,0.5"
+			MouseDown="mark_MouseDown" />
+		<Image
+			Name="mark_4"
+			UIElement.Visibility="Hidden"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/VertigoBoostPanel;component/Resources/marks/4.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="88,2,351,0"
+			RenderTransformOrigin="0.833,0.5"
+			MouseDown="mark_MouseDown" />
+		<Image
+			Name="mark_5"
+			UIElement.Visibility="Hidden"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/VertigoBoostPanel;component/Resources/marks/5.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			FrameworkElement.Margin="65,2,374,0"
+			RenderTransformOrigin="0.833,0.5"
+			MouseDown="mark_MouseDown" />
+	</Grid>
+</UserControl>

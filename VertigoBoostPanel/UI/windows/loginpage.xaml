@@ -1,0 +1,458 @@
+<Window
+	x:Class="VertigoBoostPanel.Pages.LoginPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:VertigoBoostPanel"
+	Topmost="True"
+	Title="AutoFarm Login"
+	FrameworkElement.Height="360"
+	FrameworkElement.Width="320"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	WindowStyle="None"
+	AllowsTransparency="True" xmlns:pages="clr-namespace:VertigoBoostPanel.Pages"
+	Control.Background="{x:Null}"
+	ContentRendered="Window_ContentRendered"
+	MouseEnter="Window_MouseEnter">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		Name="LayoutRoot">
+		<Border
+			Border.Background="#FF16171B"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Height="359"
+			CornerRadius="10"
+			Border.BorderThickness="0"
+			Border.BorderBrush="#2B2B2B"
+			MouseDown="Drag_MouseDown" />
+		<Button
+			Name="signInButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="220"
+			FrameworkElement.Height="37"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,270,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Control.BorderBrush="{x:Null}"
+			Click="signInButton_Click">
+			<UIElement.Effect>
+				<DropShadowEffect
+					Opacity="0.1"
+					ShadowDepth="4"
+					Direction="1" />
+			</UIElement.Effect>
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							Shape.Fill="#0067C7"
+							RadiusX="5 px"
+							RadiusY="5 px" />
+						<Label
+							Control.HorizontalContentAlignment="Center"
+							Control.VerticalContentAlignment="Center"
+							ContentControl.Content="{DynamicResource m_SignIn}"
+							Control.Foreground="#FFFFFFFF"
+							Control.FontFamily="Montserrat SemiBold"
+							FrameworkElement.Margin="0"
+							Control.FontSize="13"
+							Control.BorderBrush="#FF000000"
+							OpacityMask="#FF000000"
+							Panel.ZIndex="1"
+							Control.FontWeight="Normal" />
+						<Image
+							Name="imagee"
+							Image.Source="{Binding LoginButtonImage}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Label
+			Name="label"
+			ContentControl.Content="tedonstore.com"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.Margin="0,322,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="320"
+			Control.Foreground="#FFA4A4A4"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat"
+			Control.FontSize="10" />
+		<TextBlock
+			Name="welcomeText"
+			TextBlock.Text=""
+			Opacity="0"
+			TextAlignment="Center"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.Margin="0,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="320"
+			TextBlock.Foreground="#FFFFFFFF"
+			TextBlock.FontFamily="Montserrat SemiBold"
+			TextBlock.FontSize="24">
+			<FrameworkElement.Triggers>
+				<EventTrigger
+					RoutedEvent="Window.Loaded">
+					<BeginStoryboard>
+						<Storyboard>
+							<StringAnimationUsingKeyFrames
+								Storyboard.TargetProperty="Text"
+								RepeatBehavior="Forever">
+								<DiscreteStringKeyFrame
+									Value="Hello"
+									KeyTime="0:0:0.0" />
+								<DiscreteStringKeyFrame
+									Value="Привет"
+									KeyTime="0:0:5.0" />
+								<DiscreteStringKeyFrame
+									Value="欢迎"
+									KeyTime="0:0:10.0" />
+								<DiscreteStringKeyFrame
+									Value="Tere"
+									KeyTime="0:0:15.0" />
+								<DiscreteStringKeyFrame
+									Value="Hallo"
+									KeyTime="0:0:20.0" />
+								<DiscreteStringKeyFrame
+									Value="Ahoj"
+									KeyTime="0:0:25.0" />
+								<DiscreteStringKeyFrame
+									Value="."
+									KeyTime="0:0:30.0" />
+							</StringAnimationUsingKeyFrames>
+						</Storyboard>
+					</BeginStoryboard>
+					<BeginStoryboard>
+						<Storyboard>
+							<DoubleAnimation
+								Storyboard.TargetName="welcomeText"
+								Storyboard.TargetProperty="(TextBlock.Opacity)"
+								From="-0.3"
+								To="1.5"
+								BeginTime="0:0:0"
+								Duration="0:0:2.5"
+								AutoReverse="True"
+								RepeatBehavior="Forever" />
+						</Storyboard>
+					</BeginStoryboard>
+				</EventTrigger>
+			</FrameworkElement.Triggers>
+		</TextBlock>
+		<Button
+			Name="b_close"
+			ContentControl.Content="Button"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="294,6,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="20"
+			Cursor="Hand"
+			Panel.ZIndex="331"
+			RenderTransformOrigin="0.384,0.809"
+			FrameworkElement.Height="20"
+			MouseLeave="ButtonTopPanel_MouseLeave"
+			MouseEnter="ButtonTopPanel_MouseEnter">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							FrameworkElement.Height="17 px"
+							FrameworkElement.Width="17 px"
+							Shape.Fill="#FFFFFFFF"
+							Opacity="0.005" />
+						<Rectangle
+							Name="Line"
+							FrameworkElement.Height="13 px"
+							FrameworkElement.Width="1.4 px"
+							Shape.Fill="#FF99999B"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="45" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Rectangle>
+						<Rectangle
+							Name="SecondLine"
+							FrameworkElement.Height="13 px"
+							FrameworkElement.Width="1.4 px"
+							Shape.Fill="#FF99999B"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="-45" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Rectangle>
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="276,6,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			Control.Background="#FF000000"
+			Cursor="Hand"
+			Panel.ZIndex="385"
+			FrameworkElement.Height="20"
+			RenderTransformOrigin="0.5,0.5"
+			FrameworkElement.Width="19"
+			Control.BorderBrush="{x:Null}"
+			Control.Foreground="{x:Null}"
+			MouseLeave="ButtonTopPanel_MouseLeave"
+			MouseEnter="ButtonTopPanel_MouseEnter"
+			Click="Minimize_Button_Click">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							FrameworkElement.Height="17 px"
+							FrameworkElement.Width="17 px"
+							Shape.Fill="#FFFFFFFF"
+							Opacity="0.005" />
+						<Rectangle
+							Name="Line"
+							FrameworkElement.Height="11 px"
+							FrameworkElement.Width="1.4 px"
+							Shape.Fill="#FF99999B"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="90" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Rectangle>
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Image
+			Name="image_Copy"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="13"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="31"
+			Image.Source="https://tedonstore.com/api/resources/img/logo.png"
+			Panel.ZIndex="20"
+			FrameworkElement.Margin="10,9,0,0" />
+		<Label
+			Name="errorLabel"
+			ContentControl.Content=""
+			UIElement.Visibility="Hidden"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.Margin="0,245,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="320"
+			Control.Foreground="#FFFFDE00"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat"
+			Control.FontSize="10" />
+		<Border
+			CornerRadius="4"
+			Border.Background="#FF16171B"
+			Border.BorderThickness="1"
+			FrameworkElement.Margin="50,132,50,196"
+			Border.BorderBrush="#FF444444" />
+		<TextBlock
+			Name="loginToolTip"
+			FrameworkElement.Margin="143,141,143,204"
+			TextBlock.Text="{DynamicResource m_Login}"
+			TextBlock.Foreground="#989898"
+			FrameworkElement.HorizontalAlignment="Center"
+			TextBlock.FontFamily="Montserrat Medium"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="34"
+			UIElement.Visibility="{Binding ElementName=loginbox, Path=Text.IsEmpty, Converter='{StaticResource BooleanToVisibilityConverter}'}" />
+		<TextBox
+			Name="loginbox"
+			Control.BorderThickness="0"
+			CaretBrush="#FFFFFFFF"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.Height="32"
+			FrameworkElement.VerticalAlignment="Top"
+			TextAlignment="Center"
+			FrameworkElement.Width="220"
+			Control.Background="#00FFFFFF"
+			Control.Foreground="#FFFFFFFF"
+			Control.FontFamily="Montserrat Medium"
+			Control.HorizontalContentAlignment="Center"
+			Control.VerticalContentAlignment="Center"
+			VerticalScrollBarVisibility="Disabled"
+			ScrollViewer.CanContentScroll="True"
+			UseLayoutRounding="False"
+			MaxLines="1"
+			Control.Padding="0"
+			Panel.ZIndex="201"
+			FrameworkElement.Margin="50,132,50,0"
+			Control.BorderBrush="{x:Null}"
+			SelectionBrush="{x:Null}"
+			TextChanged="loginbox_TextChanged">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type TextBox}"
+						TargetType="{x:Type TextBox}">
+						<Setter
+							Property="Control.Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type TextBox}">
+									<Border
+										Name="border"
+										Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+										Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+										Border.Background="{TemplateBinding Control.Background}"
+										SnapsToDevicePixels="True">
+										<ScrollViewer
+											Name="PART_ContentHost"
+											UIElement.Focusable="False"
+											ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+											ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+									</Border>
+									<ControlTemplate.Triggers>
+										<Trigger
+											Property="UIElement.IsEnabled"
+											Value="False">
+											<Setter
+												TargetName="border"
+												Property="UIElement.Opacity"
+												Value="0" />
+										</Trigger>
+										<Trigger
+											Property="UIElement.IsMouseOver"
+											Value="False">
+											<Setter
+												TargetName="border"
+												Property="Border.BorderBrush"
+												Value="{x:Null}" />
+										</Trigger>
+										<Trigger
+											Property="UIElement.IsFocused"
+											Value="False">
+											<Setter
+												TargetName="border"
+												Property="Border.BorderBrush"
+												Value="{x:Null}" />
+										</Trigger>
+									</ControlTemplate.Triggers>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+		</TextBox>
+		<Border
+			CornerRadius="4"
+			Border.Background="#FF16171B"
+			Border.BorderThickness="1"
+			FrameworkElement.Margin="50,173,50,155"
+			Border.BorderBrush="#FF444444" />
+		<TextBlock
+			Name="passwordToolTip"
+			FrameworkElement.Margin="131,181,131,164"
+			TextBlock.Text="{DynamicResource m_Password}"
+			TextBlock.Foreground="#989898"
+			TextBlock.FontFamily="Montserrat Medium"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.VerticalAlignment="Center"
+			FrameworkElement.Width="58" />
+		<PasswordBox
+			Name="passwordbox"
+			Control.BorderThickness="0"
+			CaretBrush="#FFFFFFFF"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.Height="31.729"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="220"
+			Control.Background="#00FFFFFF"
+			Control.Foreground="#FFFFFFFF"
+			Control.FontFamily="Montserrat Medium"
+			Control.HorizontalContentAlignment="Center"
+			Control.VerticalContentAlignment="Center"
+			ScrollViewer.CanContentScroll="True"
+			UseLayoutRounding="False"
+			Control.Padding="0"
+			Panel.ZIndex="201"
+			FrameworkElement.Margin="50,173.271,50,0"
+			Control.BorderBrush="{x:Null}"
+			SelectionBrush="{x:Null}"
+			PasswordChanged="passwordbox_PasswordChanged">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						x:Key="{x:Type PasswordBox}"
+						TargetType="{x:Type PasswordBox}">
+						<Setter
+							Property="Control.Template">
+							<Setter.Value>
+								<ControlTemplate
+									TargetType="{x:Type PasswordBox}">
+									<Border
+										Name="border"
+										Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+										Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+										Border.Background="{TemplateBinding Control.Background}"
+										SnapsToDevicePixels="True">
+										<ScrollViewer
+											Name="PART_ContentHost"
+											UIElement.Focusable="False"
+											ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+											ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+									</Border>
+									<ControlTemplate.Triggers>
+										<Trigger
+											Property="UIElement.IsEnabled"
+											Value="False">
+											<Setter
+												TargetName="border"
+												Property="UIElement.Opacity"
+												Value="0" />
+										</Trigger>
+										<Trigger
+											Property="UIElement.IsMouseOver"
+											Value="False">
+											<Setter
+												TargetName="border"
+												Property="Border.BorderBrush"
+												Value="{x:Null}" />
+										</Trigger>
+										<Trigger
+											Property="UIElement.IsFocused"
+											Value="False">
+											<Setter
+												TargetName="border"
+												Property="Border.BorderBrush"
+												Value="{x:Null}" />
+										</Trigger>
+									</ControlTemplate.Triggers>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+		</PasswordBox>
+	</Grid>
+</Window>

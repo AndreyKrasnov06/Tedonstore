@@ -1,0 +1,65 @@
+<UserControl
+	x:Class="VertigoBoostPanel.UI.elements.TaskListShow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:VertigoBoostPanel.UI.elements">
+	<Grid>
+		<Border
+			Name="StatusBorder"
+			Border.BorderBrush="#FF808080"
+			Border.BorderThickness="0"
+			CornerRadius="6">
+			<Border.Background>
+				<ImageBrush
+					RenderOptions.BitmapScalingMode="HighQuality"
+					Stretch="UniformToFill"
+					ImageSource="{Binding Back1}" />
+			</Border.Background>
+		</Border>
+		<Label
+			Name="BoostMode"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="143"
+			Control.Foreground="#FFFFFFFF"
+			Control.HorizontalContentAlignment="Left"
+			Control.FontFamily="Montserrat SemiBold"
+			Control.FontSize="13"
+			Control.Padding="7,5,10,5"
+			ContentControl.Content="{Binding SessionType}" />
+		<Label
+			Name="WorkingTime"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="52"
+			Control.Foreground="#FFFFFFFF"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="9"
+			FrameworkElement.Height="20"
+			FrameworkElement.Margin="146,0,0,0"
+			FrameworkElement.FlowDirection="RightToLeft"
+			Control.Padding="6,0,0,0"
+			Control.VerticalContentAlignment="Center"
+			ContentControl.Content="{Binding TimeRunning}" />
+		<Label
+			Name="Sessionname"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="196"
+			Control.Foreground="#FFFFFFFF"
+			Control.HorizontalContentAlignment="Left"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="10"
+			Control.Padding="7,5,5,5"
+			FrameworkElement.Margin="0,18,0,0"
+			ContentControl.Content="{Binding Name}" />
+		<Label
+			Name="Status"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="198"
+			Control.Foreground="#FFFFFFFF"
+			Control.FontFamily="Montserrat SemiBold"
+			Control.FontSize="11"
+			Control.Padding="7,5,5,5"
+			FrameworkElement.Margin="0,46,0,0"
+			ContentControl.Content="{Binding Status}" />
+	</Grid>
+</UserControl>

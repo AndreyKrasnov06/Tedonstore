@@ -1,0 +1,230 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=mscorlib">
+	<v:String
+		x:Key="m_SignIn">Zarejestruj sie</v:String>
+	<v:String
+		x:Key="m_Login">Login</v:String>
+	<v:String
+		x:Key="m_Password">Haslo</v:String>
+	<v:String
+		x:Key="m_Home">Home</v:String>
+	<v:String
+		x:Key="m_Accounts">Konta</v:String>
+	<v:String
+		x:Key="m_Total">Total</v:String>
+	<v:String
+		x:Key="m_Prime">Prime</v:String>
+	<v:String
+		x:Key="m_NonPrime">Non-Prime</v:String>
+	<v:String
+		x:Key="m_Ranked">Rankingowy</v:String>
+	<v:String
+		x:Key="m_Tasks">Zadania</v:String>
+	<v:String
+		x:Key="m_InOrder">In Order</v:String>
+	<v:String
+		x:Key="m_Finished">Skończone</v:String>
+	<v:String
+		x:Key="m_BoostLogs">Logi boostingu</v:String>
+	<v:String
+		x:Key="m_Message_Started">Panel został uruchomiony</v:String>
+	<v:String
+		x:Key="m_TaskList">Lista zadan</v:String>
+	<v:String
+		x:Key="m_AccountInfo">Informacje o koncie</v:String>
+	<v:String
+		x:Key="m_SaveAdd">Zapisz/Dodaj</v:String>
+	<v:String
+		x:Key="m_Settings">Ustawienia</v:String>
+	<v:String
+		x:Key="m_Import">Importuj</v:String>
+	<v:String
+		x:Key="m_Export">Eksportuj</v:String>
+	<v:String
+		x:Key="m_Start">Start</v:String>
+	<v:String
+		x:Key="m_Close">Wyłacz</v:String>
+	<v:String
+		x:Key="m_CloseAll">Wyłacz wszystko</v:String>
+	<v:String
+		x:Key="m_Level">LVL</v:String>
+	<v:String
+		x:Key="m_Wins5x5">Wins 5x5</v:String>
+	<v:String
+		x:Key="m_Wins2x2">Wins 2x2</v:String>
+	<v:String
+		x:Key="m_Rank5x5">Rank 5x5</v:String>
+	<v:String
+		x:Key="m_Rank2x2">Rank 2x2</v:String>
+	<v:String
+		x:Key="m_WinBoost">Boosting Wygranych</v:String>
+	<v:String
+		x:Key="m_XPBoost">Boost XP</v:String>
+	<v:String
+		x:Key="m_ClientBoost">Boost Klienta</v:String>
+	<v:String
+		x:Key="m_Calibration">Kalibracja</v:String>
+	<v:String
+		x:Key="m_GlobalBoost">Boosting Global</v:String>
+	<v:String
+		x:Key="m_RankBoost">Boosting Rank</v:String>
+	<v:String
+		x:Key="m_CaseFarm">Farmienie Skrzynek</v:String>
+	<v:String
+		x:Key="m_Cancel">Anuluj</v:String>
+	<v:String
+		x:Key="m_CreateSession">Utwórz sesje</v:String>
+	<v:String
+		x:Key="m_FirstTeam">Drużyna 1</v:String>
+	<v:String
+		x:Key="m_SecondTeam">Drużyna 2</v:String>
+	<v:String
+		x:Key="m_Options">Opcje</v:String>
+	<v:String
+		x:Key="m_ShortGame">Krótki mecz</v:String>
+	<v:String
+		x:Key="m_AutoMVP">Auto MVP</v:String>
+	<v:String
+		x:Key="m_SwapLeaders">Zamiana liderow</v:String>
+	<v:String
+		x:Key="m_WinLose">Wygrana/Przegrana</v:String>
+	<v:String
+		x:Key="m_SteamPath">Scieżka Steam</v:String>
+	<v:String
+		x:Key="m_CSGOPath">Scieżka CS:GO</v:String>
+	<v:String
+		x:Key="m_IdleServerBat">Idle server .bat</v:String>
+	<v:String
+		x:Key="m_PanelSettings">Ustawienia panelu</v:String>
+	<v:String
+		x:Key="m_TelegramId">Telegram id</v:String>
+	<v:String
+		x:Key="m_Arguments">Argumenty</v:String>
+	<v:String
+		x:Key="m_MainDisplay">Glowny ekran</v:String>
+	<v:String
+		x:Key="m_CaseFarmServerIp">Case Farm server ip</v:String>
+	<v:String
+		x:Key="m_Width">Szerokość</v:String>
+	<v:String
+		x:Key="m_Height">Wysokość</v:String>
+	<v:String
+		x:Key="m_TasksAtTime">Zadania w tym czasie</v:String>
+	<v:String
+		x:Key="m_LoginsForGettingStats">Loginy do uzyskania statystyk</v:String>
+	<v:String
+		x:Key="m_WindowAlign">Wyrównywanie okien</v:String>
+	<v:String
+		x:Key="m_MouseInCSGO">Mysz w CS:GO</v:String>
+	<v:String
+		x:Key="m_UseInviteFromRecent">Uzywaj zaproszen z ostatnich meczy</v:String>
+	<v:String
+		x:Key="m_SuspendSteamOverlay">Zawies nakladke steam</v:String>
+	<v:String
+		x:Key="m_NoGraphicsMode">Negrafický mod</v:String>
+	<v:String
+		x:Key="m_BlockServers">Blokowanie serwerow</v:String>
+	<v:String
+		x:Key="m_TickAll">Zaznacz</v:String>
+	<v:String
+		x:Key="m_ClearAll">Wyczysc</v:String>
+	<v:String
+		x:Key="m_ChooseMap5x5">Wybierz mape 5x5</v:String>
+	<v:String
+		x:Key="m_ChooseMap2x2">Wybierz mapey 2x2</v:String>
+	<v:String
+		x:Key="m_ChooseCompetitiveMode">Wybierz tryb rankingowy</v:String>
+	<v:String
+		x:Key="m_PreventSteamOverlayFromLaunching">Zablokuj Steam Overlay przed uruchomieniem</v:String>
+	<v:String
+		x:Key="m_PreventSteamWebHelperFromLaunching">Zablokuj Steam Web Helper przed uruchomieniem</v:String>
+	<v:String
+		x:Key="m_PreventTextOverlay">Ta funkcja uniemozliwi trwale uruchomienie procesu o nazwie "gameoverlayui.exe" na komputerze. Mozna to cofnac.</v:String>
+	<v:String
+		x:Key="m_PreventTextWebHelper">Ta funkcja uniemozliwi trwale uruchomienie procesu o nazwie "steamwebhelper.exe" na komputerze. Mozna to cofnac.</v:String>
+	<v:String
+		x:Key="m_DisableNews">Wyłacz aktualnosci CS:GO</v:String>
+	<v:String
+		x:Key="m_DisableNewsText">Ta funkcja wylaczy aktualnosci w menu CS:GO. Mozna to cofnac.</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolder">Wyczysc userdata folder</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolderText">Ta opcja usunie wszystkie informacje o koncie z folderu steam.</v:String>
+	<v:String
+		x:Key="m_ConfigEditor">Edytowanie configu</v:String>
+	<v:String
+		x:Key="m_Message_Inviting">Zapraszanie kont</v:String>
+	<v:String
+		x:Key="m_Message_Searching">Szuaknie</v:String>
+	<v:String
+		x:Key="m_Message_GameFound">Znalazło mecz</v:String>
+	<v:String
+		x:Key="m_Message_GameOver">Koniec meczu</v:String>
+	<v:String
+		x:Key="m_Message_GotItem">Zdobyto przedmiot</v:String>
+	<v:String
+		x:Key="m_Stats">Statystyki dla</v:String>
+	<v:String
+		x:Key="m_ClickerWarning">Kliker dziala tylko w rozdzielczosci 383x280.</v:String>
+	<v:String
+		x:Key="m_On">On</v:String>
+	<v:String
+		x:Key="m_Off">Off</v:String>
+	<v:String
+		x:Key="m_SessionName">Nazwa sesji</v:String>
+	<v:String
+		x:Key="m_Save">Uložiť</v:String>
+	<v:String
+		x:Key="m_InviteCode">Pozyvaci kod</v:String>
+	<v:String
+		x:Key="m_Amount">Množstvo</v:String>
+	<v:String
+		x:Key="m_Profile">Profil</v:String>
+	<v:String
+		x:Key="m_XPGainedPerGame">XP zdobyte w ciagu gry</v:String>
+	<v:String
+		x:Key="m_CurrentLevel">Aktualny level</v:String>
+	<v:String
+		x:Key="m_XPUntilNextLevel">XP do nastepnego poziomu</v:String>
+	<v:String
+		x:Key="m_CurrentRank5x5">Aktualna ranga 5x5</v:String>
+	<v:String
+		x:Key="m_CurrentWins5x5">Aktuálne Výhry 5x5</v:String>
+	<v:String
+		x:Key="m_Message_BoostingClient">Kontynuacja zwiększania liczby klientów</v:String>
+	<v:String
+		x:Key="m_ChooseDefaultTab">Standardowy typ dopasowania</v:String>
+	<v:String
+		x:Key="m_CreateAdapterCaption">Karta sieciowa Vytvorte</v:String>
+	<v:String
+		x:Key="m_CreateAdapterText">Ta funkcja utworzy dodatkowy adapter Ethernet w systemie Windows, aby ominąć limit liczby uruchomionych kopii CS:GO.</v:String>
+	<v:String
+		x:Key="m_CaseFarmInfo">Istnieją konta z otrzymanym spadkiem w ciągu ostatnich 7 dni. Co robić?</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunOnly">Uruchom tylko czysty</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunAll">Uruchom wszystko</v:String>
+	<v:String
+		x:Key="m_WalkBot">WalkBot</v:String>
+	<v:String
+		x:Key="m_roundAFK">AFK 1 runda</v:String>
+	<v:String
+		x:Key="m_ItemsTransfer">Przeniesienie przedmiotów</v:String>
+	<v:String
+		x:Key="m_YourGroups">Twoje grupy</v:String>
+	<v:String
+		x:Key="m_TransferLogs">Dzienniki transferu</v:String>
+	<v:String
+		x:Key="m_TaskName">Nazwa zadania</v:String>
+	<v:String
+		x:Key="m_MasterToken">Token mistrza</v:String>
+	<v:String
+		x:Key="m_MasterData">Dane podstawowe</v:String>
+	<v:String
+		x:Key="m_MasterDataInfo">Master - konto, z którego będą pobierane przedmioty dla innych kont, które są w grupie. Pole „Dane podstawowe” może przyjmować następujące wartości: login konta, steamid64 (z linku do profilu), steamid32 (kod znajomego). Aby wstawić login istniejącego konta - wystarczy go przeciągnąć.</v:String>
+	<v:String
+		x:Key="m_InstallOldSteam">Zainstaluj starego steama</v:String>
+	<v:String
+		x:Key="m_LaunchDelay">Opóźnienie uruchomienia</v:String>
+	<v:String
+		x:Key="m_DiscordHook">Discord WebHook</v:String>
+</ResourceDictionary>

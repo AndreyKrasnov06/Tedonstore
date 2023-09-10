@@ -1,0 +1,711 @@
+<Window
+	x:Class="VertigoBoostPanel.UI.Pages.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:el="clr-namespace:VertigoBoostPanel.UI.elements" xmlns:local="clr-namespace:VertigoBoostPanel.Pages" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/" xmlns:elements="clr-namespace:VertigoBoostPanel.UI.elements"
+	Title="VertigoBoostPanel"
+	FrameworkElement.Height="460"
+	FrameworkElement.Width="720"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	WindowStyle="None"
+	AllowsTransparency="True" xmlns:pages="clr-namespace:VertigoBoostPanel.UI.Pages"
+	Control.Background="{x:Null}"
+	Loaded="Window_Loaded">
+	<Grid
+		Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				RowDefinition.Height="13*" />
+			<RowDefinition
+				RowDefinition.Height="79*" />
+		</Grid.RowDefinitions>
+		<Border
+			Border.Background="#FF16171B"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Height="460"
+			CornerRadius="13"
+			Border.BorderThickness="0"
+			Border.BorderBrush="#2B2B2B"
+			Grid.RowSpan="2"
+			MouseDown="Drag_MouseDown" />
+		<Button
+			Name="button_Copy1"
+			ContentControl.Content="Button"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="693,6,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="20"
+			Cursor="Hand"
+			Panel.ZIndex="331"
+			RenderTransformOrigin="0.384,0.809"
+			FrameworkElement.Height="20"
+			MouseLeave="ButtonTopPanel_MouseLeave"
+			MouseEnter="ButtonTopPanel_MouseEnter"
+			Click="Close_Button_Click">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							FrameworkElement.Height="17 px"
+							FrameworkElement.Width="17 px"
+							Shape.Fill="#FFFFFFFF"
+							Opacity="0.005" />
+						<Rectangle
+							Name="Line"
+							FrameworkElement.Height="13 px"
+							FrameworkElement.Width="1.4 px"
+							Shape.Fill="#FF99999B"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="45" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Rectangle>
+						<Rectangle
+							Name="SecondLine"
+							FrameworkElement.Height="13 px"
+							FrameworkElement.Width="1.4 px"
+							Shape.Fill="#FF99999B"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="-45" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Rectangle>
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="675,6,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			Control.Background="#FF000000"
+			Cursor="Hand"
+			Panel.ZIndex="385"
+			FrameworkElement.Height="20"
+			RenderTransformOrigin="0.5,0.5"
+			FrameworkElement.Width="19"
+			Control.BorderBrush="{x:Null}"
+			Control.Foreground="{x:Null}"
+			MouseLeave="ButtonTopPanel_MouseLeave"
+			MouseEnter="ButtonTopPanel_MouseEnter"
+			Click="Minimize_Button_Click">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							FrameworkElement.Height="17 px"
+							FrameworkElement.Width="17 px"
+							Shape.Fill="#FFFFFFFF"
+							Opacity="0.005" />
+						<Rectangle
+							Name="Line"
+							FrameworkElement.Height="11 px"
+							FrameworkElement.Width="1.4 px"
+							Shape.Fill="#FF99999B"
+							RenderTransformOrigin="0.5,0.5">
+							<UIElement.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<SkewTransform />
+									<RotateTransform
+										Angle="90" />
+									<TranslateTransform />
+								</TransformGroup>
+							</UIElement.RenderTransform>
+						</Rectangle>
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Image
+			Name="image_Copy"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="13"
+			FrameworkElement.VerticalAlignment="Top"
+			Panel.ZIndex="20"
+			FrameworkElement.Margin="0,14,670,0"
+			Image.Source="{Binding Logo}"
+			MouseDown="image_Copy_MouseDown" />
+		<Grid
+			FrameworkElement.Margin="50,0,669,0"
+			Panel.Background="#FF2B2B2B"
+			RowSpan="2" />
+		<Button
+			Name="HomeButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="17"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,60,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Grid.RowSpan="2"
+			Control.BorderBrush="{x:Null}"
+			Click="HomePage_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy2"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="17"
+							FrameworkElement.VerticalAlignment="Top"
+							FrameworkElement.Width="50"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding Home}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="AccsButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,32,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="AccountsPage_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy3"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="16"
+							FrameworkElement.VerticalAlignment="Top"
+							FrameworkElement.Width="50"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding Accounts}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="TasksButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,68,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="TasksPage_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy4"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="16"
+							FrameworkElement.VerticalAlignment="Top"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding Sessions}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="SettingsButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,105,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="SettingsPage_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy5"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="16"
+							FrameworkElement.VerticalAlignment="Top"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding SettingsLogo}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="ConfigButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,142,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="ConfigButton_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy5"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="16"
+							FrameworkElement.VerticalAlignment="Top"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding ConfigLogo}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="TransferButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,179,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="TransferButton_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							FrameworkElement.Width="16"
+							FrameworkElement.Height="16"
+							FrameworkElement.VerticalAlignment="Top"
+							Image.Source="{svgc:SvgImage Source=/Resources/Svg/ItemsLogo.svg, AppName=VertigoBoostPanel}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="TroubleshootButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="50"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="0,327,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="TroubleshootButton_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy6"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="17"
+							FrameworkElement.VerticalAlignment="Top"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding Faq}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="ExitButton"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="47"
+			FrameworkElement.Height="16"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="3,362,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Opacity="0.5"
+			Grid.Row="1"
+			Control.BorderBrush="{x:Null}"
+			Click="ExitButton_Click"
+			MouseEnter="MenuButton_MouseEnter"
+			MouseLeave="MenuButton_MouseLeave">
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Image
+							Name="image_Copy1"
+							RenderOptions.BitmapScalingMode="HighQuality"
+							FrameworkElement.Height="16"
+							FrameworkElement.VerticalAlignment="Top"
+							FrameworkElement.Width="50"
+							Panel.ZIndex="20"
+							Image.Stretch="Uniform"
+							Image.Source="{Binding Exit}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Border
+			Name="HomeTrigger"
+			Border.BorderThickness="0"
+			CornerRadius="3"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="23"
+			FrameworkElement.Margin="-5,57,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="7"
+			Border.Background="#FFFFFFFF"
+			Grid.RowSpan="2" />
+		<Frame
+			Name="frame"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="460"
+			FrameworkElement.Margin="51,0,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="669"
+			NavigationUIVisibility="Hidden"
+			Grid.RowSpan="2" />
+		<Border
+			Name="AccsTrigger"
+			Border.BorderThickness="0"
+			CornerRadius="3"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="22"
+			FrameworkElement.Margin="-5,29,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="7"
+			Border.Background="#FFFFFFFF"
+			UIElement.Visibility="Hidden"
+			Grid.Row="1" />
+		<Border
+			Name="TasksTrigger"
+			Border.BorderThickness="0"
+			CornerRadius="3"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="22"
+			FrameworkElement.Margin="-5,65,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="7"
+			Border.Background="#FFFFFFFF"
+			UIElement.Visibility="Hidden"
+			Grid.Row="1" />
+		<Border
+			Name="SettingsTrigger"
+			Border.BorderThickness="0"
+			CornerRadius="3"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="22"
+			FrameworkElement.Margin="-5,102,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="7"
+			Border.Background="#FFFFFFFF"
+			UIElement.Visibility="Hidden"
+			Grid.Row="1" />
+		<Border
+			Name="ConfigTrigger"
+			Border.BorderThickness="0"
+			CornerRadius="3"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="22"
+			FrameworkElement.Margin="-5,138.5,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="7"
+			Border.Background="#FFFFFFFF"
+			UIElement.Visibility="Hidden"
+			Grid.Row="1" />
+		<Border
+			Name="TransferTrigger"
+			Border.BorderThickness="0"
+			CornerRadius="3"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="22"
+			FrameworkElement.Margin="-5,175,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="7"
+			Border.Background="#FFFFFFFF"
+			UIElement.Visibility="Hidden"
+			Grid.Row="1" />
+		<Grid
+			Name="homepage_hui"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="30"
+			FrameworkElement.Margin="39,-75,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="31"
+			UIElement.Visibility="Hidden" />
+		<Grid
+			Name="accpage_hui"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="30"
+			FrameworkElement.Margin="100,-75,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="31"
+			UIElement.Visibility="Hidden" />
+		<Grid
+			Name="settingspage_hui"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="30"
+			FrameworkElement.Margin="150,-75,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="31"
+			UIElement.Visibility="Hidden" />
+		<Grid
+			Name="taskspage_hui"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Height="30"
+			FrameworkElement.Margin="200,-75,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="31"
+			UIElement.Visibility="Hidden" />
+		<Rectangle
+			Name="YESSS"
+			UIElement.Visibility="Hidden"
+			Shape.Fill="#FF16171B"
+			FrameworkElement.Margin="10,57,674,184"
+			Panel.ZIndex="5"
+			Grid.RowSpan="2" />
+		<Grid
+			Name="errorGrid" />
+		<Grid
+			Name="CaseFarmDialogGrid"
+			UIElement.Visibility="Hidden">
+			<Border
+				Border.Background="#FF000000"
+				FrameworkElement.Margin="-1,0,1,-395"
+				CornerRadius="13"
+				Opacity="0.6">
+				<UIElement.Effect>
+					<BlurEffect
+						Radius="5"
+						KernelType="Gaussian" />
+				</UIElement.Effect>
+			</Border>
+			<Rectangle
+				Shape.Fill="#FF16171B"
+				RadiusX="5"
+				RadiusY="5"
+				FrameworkElement.Width="328"
+				FrameworkElement.Height="133"
+				FrameworkElement.VerticalAlignment="Center"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.Margin="192,172,200,-240">
+				<UIElement.Effect>
+					<DropShadowEffect
+						Direction="0"
+						ShadowDepth="0"
+						BlurRadius="25"
+						Opacity="0.5" />
+				</UIElement.Effect>
+			</Rectangle>
+			<TextBlock
+				TextBlock.TextWrapping="Wrap"
+				TextAlignment="Center"
+				Padding="5,5,5,5"
+				TextBlock.Text="{DynamicResource m_CaseFarmInfo}"
+				FrameworkElement.Margin="200,188,208,-162"
+				TextBlock.Foreground="#FFFFFFFF"
+				TextBlock.FontFamily="Montserrat Medium"
+				TextBlock.FontSize="12" />
+			<Button
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				FrameworkElement.Width="60"
+				FrameworkElement.Height="26"
+				Control.Foreground="#FFFFFFFF"
+				Control.Background="#FF008BFF"
+				Cursor="Hand"
+				Panel.ZIndex="5"
+				FrameworkElement.Margin="434,255,0,-216"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontWeight="Normal"
+				Control.BorderBrush="{x:Null}"
+				Click="CancelCaseFarm">
+				<UIElement.Effect>
+					<DropShadowEffect
+						Opacity="0.1"
+						ShadowDepth="4"
+						Direction="1" />
+				</UIElement.Effect>
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								Shape.Fill="#FFC70000"
+								RadiusX="3 px"
+								RadiusY="3 px" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_Cancel}"
+								Control.Foreground="#FFFFFFFF"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.FontSize="10"
+								Control.BorderBrush="#FF000000"
+								OpacityMask="#FF000000"
+								Panel.ZIndex="1"
+								Control.FontWeight="Normal" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				FrameworkElement.Width="117"
+				FrameworkElement.Height="25"
+				Control.Foreground="#FFFFFFFF"
+				Control.Background="#FF008BFF"
+				Cursor="Hand"
+				Panel.ZIndex="5"
+				FrameworkElement.Margin="216,256,0,-216"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontWeight="Normal"
+				Control.BorderBrush="{x:Null}"
+				Click="RunCleanCaseFarm">
+				<UIElement.Effect>
+					<DropShadowEffect
+						Opacity="0.1"
+						ShadowDepth="4"
+						Direction="1" />
+				</UIElement.Effect>
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								Shape.Fill="#0067C7"
+								RadiusX="3 px"
+								RadiusY="3 px" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_CaseFarmRunOnly}"
+								Control.Foreground="#FFFFFFFF"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.FontSize="10"
+								Control.BorderBrush="#FF000000"
+								OpacityMask="#FF000000"
+								Panel.ZIndex="1"
+								Control.FontWeight="Normal" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.VerticalAlignment="Top"
+				FrameworkElement.Width="91"
+				FrameworkElement.Height="25"
+				Control.Foreground="#FFFFFFFF"
+				Control.Background="#FF008BFF"
+				Cursor="Hand"
+				Panel.ZIndex="5"
+				FrameworkElement.Margin="338,256,0,-216"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontWeight="Normal"
+				Control.BorderBrush="{x:Null}"
+				Click="RunAllCaseFarm">
+				<UIElement.Effect>
+					<DropShadowEffect
+						Opacity="0.1"
+						ShadowDepth="4"
+						Direction="1" />
+				</UIElement.Effect>
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								Shape.Fill="#0067C7"
+								RadiusX="3 px"
+								RadiusY="3 px" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_CaseFarmRunAll}"
+								Control.Foreground="#FFFFFFFF"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.FontSize="10"
+								Control.BorderBrush="#FF000000"
+								OpacityMask="#FF000000"
+								Panel.ZIndex="1"
+								Control.FontWeight="Normal" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+		</Grid>
+	</Grid>
+</Window>

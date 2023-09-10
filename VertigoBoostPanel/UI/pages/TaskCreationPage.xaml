@@ -1,0 +1,2738 @@
+<Page
+	x:Class="VertigoBoostPanel.UI.pages.TaskCreationPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:VertigoBoostPanel.UI.pages" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+	Title="TaskCreationPage">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<FontFamily
+				x:Key="Montserrat_400">pack://application:,,,/Resources/font/#Montserrat Regular</FontFamily>
+			<FontFamily
+				x:Key="Montserrat_500">pack://application:,,,/Resources/font/#Montserrat Medium</FontFamily>
+			<FontFamily
+				x:Key="Montserrat_600">pack://application:,,,/Resources/font/#Montserrat SemiBold</FontFamily>
+			<SolidColorBrush
+				x:Key="brushWatermarkBackground"
+				Color="White" />
+			<SolidColorBrush
+				x:Key="brushWatermarkForeground"
+				Color="LightSteelBlue" />
+			<SolidColorBrush
+				x:Key="brushWatermarkBorder"
+				Color="Indigo" />
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibilityConverter" />
+			<Style
+				x:Key="EntryFieldStyle"
+				TargetType="{x:Type Grid}">
+				<Setter
+					Property="FrameworkElement.HorizontalAlignment"
+					Value="Stretch" />
+				<Setter
+					Property="FrameworkElement.VerticalAlignment"
+					Value="Center" />
+			</Style>
+			<Style
+				x:Key="{x:Type ComboBoxItem}"
+				TargetType="{x:Type ComboBoxItem}">
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ComboBoxItem}">
+							<Border
+								Border.Background="{TemplateBinding Control.Background}">
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<Border
+										FrameworkElement.Margin="10"
+										Grid.Row="0"
+										Border.Background="#00FFFFFF" />
+									<ContentPresenter />
+								</Grid>
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										Property="Control.Background"
+										Value="#151618" />
+								</Trigger>
+								<Trigger
+									Property="ListBoxItem.IsSelected"
+									Value="True">
+									<Setter
+										Property="Control.Background"
+										Value="#151618" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				x:Key="chkBase"
+				TargetType="{x:Type CheckBox}">
+				<Setter
+					Property="ToggleButton.IsChecked"
+					Value="False" />
+				<Setter
+					Property="Control.Background"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Control.Foreground"
+					Value="#fff" />
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type CheckBox}">
+							<DockPanel
+								Panel.Background="{TemplateBinding Control.Background}"
+								ToolTip="{TemplateBinding ContentControl.Content}"
+								DockPanel.LastChildFill="False"
+								FrameworkElement.Width="{TemplateBinding FrameworkElement.Width}">
+								<Image
+									Name="_img"
+									FrameworkElement.Margin="0 0 3 0"
+									DockPanel.Dock="Left"
+									Image.Stretch="None"
+									Image.Source="{Binding NullSession}" />
+								<TextBlock
+									DockPanel.Dock="Left"
+									TextBlock.Foreground="{TemplateBinding Control.Foreground}"
+									FrameworkElement.Margin="2 0 0 0"
+									FrameworkElement.VerticalAlignment="Center"
+									TextBlock.Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" />
+							</DockPanel>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="ToggleButton.IsChecked"
+									Value="true">
+									<Setter
+										TargetName="_img"
+										Property="Image.Source"
+										Value="{Binding YesSession}" />
+								</Trigger>
+								<Trigger
+									Property="ToggleButton.IsChecked"
+									Value="{x:Null}">
+									<Setter
+										TargetName="_img"
+										Property="Image.Source"
+										Value="{Binding NullSession1}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				x:Key="ListBoxItemStyle1"
+				TargetType="{x:Type ListBoxItem}">
+				<Setter
+					Property="FrameworkElement.FocusVisualStyle"
+					Value="{x:Null}" />
+				<Setter
+					Property="Control.Background"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Control.HorizontalContentAlignment"
+					Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+				<Setter
+					Property="Control.VerticalContentAlignment"
+					Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+				<Setter
+					Property="Control.Padding"
+					Value="4,2,0,0" />
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ListBoxItem}">
+							<Border
+								Name="Bd"
+								CornerRadius="8"
+								Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+								Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+								Border.Background="{TemplateBinding Control.Background}"
+								Padding="{TemplateBinding Control.Padding}"
+								SnapsToDevicePixels="True">
+								<ContentPresenter
+									FrameworkElement.HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+									SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+									FrameworkElement.VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="ListBoxItem.IsSelected"
+									Value="False">
+									<Setter
+										Property="FrameworkElement.FocusVisualStyle"
+										Value="{x:Null}" />
+									<Setter
+										Property="Control.Foreground"
+										Value="#00FFFFFF" />
+								</Trigger>
+								<MultiTrigger>
+									<MultiTrigger.Conditions>
+										<Condition
+											Property="ListBoxItem.IsSelected"
+											Value="False" />
+										<Condition
+											Property="Selector.IsSelectionActive"
+											Value="False" />
+									</MultiTrigger.Conditions>
+									<Setter
+										Property="FrameworkElement.FocusVisualStyle"
+										Value="{x:Null}" />
+									<Setter
+										Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+										Property="Control.Foreground" />
+								</MultiTrigger>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="False">
+									<Setter
+										Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"
+										Property="Control.Foreground" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				x:Key="FocusVisual">
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate />
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<LinearGradientBrush
+				x:Key="ComboBox.Static.Background"
+				EndPoint="0,1"
+				StartPoint="0,0">
+				<GradientStop
+					Color="#151618"
+					Offset="0.0" />
+				<GradientStop
+					Color="#151618"
+					Offset="1.0" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				x:Key="ComboBox.Static.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Static.Editable.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Static.Editable.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Static.Editable.Button.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Static.Editable.Button.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.MouseOver.Glyph"
+				Color="#151618" />
+			<LinearGradientBrush
+				x:Key="ComboBox.MouseOver.Background"
+				EndPoint="0,1"
+				StartPoint="0,0">
+				<GradientStop
+					Color="#151618"
+					Offset="0.0" />
+				<GradientStop
+					Color="#151618"
+					Offset="1.0" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				x:Key="ComboBox.MouseOver.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.MouseOver.Editable.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.MouseOver.Editable.Border"
+				Color="#151618" />
+			<LinearGradientBrush
+				x:Key="ComboBox.MouseOver.Editable.Button.Background"
+				EndPoint="0,1"
+				StartPoint="0,0">
+				<GradientStop
+					Color="#151618"
+					Offset="0.0" />
+				<GradientStop
+					Color="#151618"
+					Offset="1.0" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				x:Key="ComboBox.MouseOver.Editable.Button.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Pressed.Glyph"
+				Color="#151618" />
+			<LinearGradientBrush
+				x:Key="ComboBox.Pressed.Background"
+				EndPoint="0,1"
+				StartPoint="0,0">
+				<GradientStop
+					Color="#151618"
+					Offset="0.0" />
+				<GradientStop
+					Color="#151618"
+					Offset="1.0" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				x:Key="ComboBox.Pressed.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Pressed.Editable.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Pressed.Editable.Border"
+				Color="#151618" />
+			<LinearGradientBrush
+				x:Key="ComboBox.Pressed.Editable.Button.Background"
+				EndPoint="0,1"
+				StartPoint="0,0">
+				<GradientStop
+					Color="#151618"
+					Offset="0.0" />
+				<GradientStop
+					Color="#151618"
+					Offset="1.0" />
+			</LinearGradientBrush>
+			<SolidColorBrush
+				x:Key="ComboBox.Pressed.Editable.Button.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Glyph"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Editable.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Editable.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Editable.Button.Background"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Disabled.Editable.Button.Border"
+				Color="#151618" />
+			<SolidColorBrush
+				x:Key="ComboBox.Static.Glyph"
+				Color="#FF606060" />
+			<Style
+				x:Key="ComboBoxToggleButton"
+				TargetType="{x:Type ToggleButton}">
+				<Setter
+					Property="FrameworkElement.OverridesDefaultStyle"
+					Value="True" />
+				<Setter
+					Property="Control.IsTabStop"
+					Value="False" />
+				<Setter
+					Property="UIElement.Focusable"
+					Value="False" />
+				<Setter
+					Property="ButtonBase.ClickMode"
+					Value="Press" />
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ToggleButton}">
+							<Border
+								Name="templateRoot"
+								SnapsToDevicePixels="True"
+								Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+								Border.Background="{StaticResource ComboBox.Static.Background}"
+								Border.BorderBrush="{StaticResource ComboBox.Static.Border}">
+								<Border
+									Name="splitBorder"
+									FrameworkElement.Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+									SnapsToDevicePixels="True"
+									FrameworkElement.Margin="0"
+									FrameworkElement.HorizontalAlignment="Right"
+									Border.BorderThickness="1"
+									Border.BorderBrush="#00FFFFFF">
+									<Path
+										Name="arrow"
+										FrameworkElement.VerticalAlignment="Center"
+										FrameworkElement.Margin="0"
+										FrameworkElement.HorizontalAlignment="Center"
+										Shape.Fill="#fff"
+										Path.Data="F1 M0,0 L2.667,2.66665 L5.3334,0 L5.3334,-1.78168 L2.6667,0.88501 L0,-1.78168 L0,0 Z" />
+								</Border>
+							</Border>
+							<ControlTemplate.Triggers>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="true"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+										<Condition
+											Value="false"
+											Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="false"
+											Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="true"
+											Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.Static.Editable.Background}" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.Static.Editable.Border}" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.Background"
+										Value="#151618" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.BorderBrush"
+										Value="#151618" />
+								</MultiDataTrigger>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										TargetName="arrow"
+										Property="Shape.Fill"
+										Value="#fff" />
+								</Trigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="true"
+											Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="false"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.MouseOver.Background}" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.MouseOver.Border}" />
+								</MultiDataTrigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="true"
+											Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="true"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.MouseOver.Editable.Background}" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.MouseOver.Editable.Border}" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.MouseOver.Editable.Button.Background}" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.MouseOver.Editable.Button.Border}" />
+								</MultiDataTrigger>
+								<Trigger
+									Property="ButtonBase.IsPressed"
+									Value="True">
+									<Setter
+										TargetName="arrow"
+										Property="Shape.Fill"
+										Value="#fff" />
+								</Trigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="true"
+											Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="false"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.Pressed.Background}" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.Pressed.Border}" />
+								</MultiDataTrigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="true"
+											Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="true"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.Pressed.Editable.Background}" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.Pressed.Editable.Border}" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.Pressed.Editable.Button.Background}" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.Pressed.Editable.Button.Border}" />
+								</MultiDataTrigger>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="False">
+									<Setter
+										TargetName="arrow"
+										Property="Shape.Fill"
+										Value="#fff" />
+								</Trigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="false"
+											Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="false"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="#151618" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.Disabled.Border}" />
+								</MultiDataTrigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="false"
+											Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+										<Condition
+											Value="true"
+											Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.Background"
+										Value="{StaticResource ComboBox.Disabled.Editable.Background}" />
+									<Setter
+										TargetName="templateRoot"
+										Property="Border.BorderBrush"
+										Value="{StaticResource ComboBox.Disabled.Editable.Border}" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.Background"
+										Value="#151618" />
+									<Setter
+										TargetName="splitBorder"
+										Property="Border.BorderBrush"
+										Value="#151618" />
+								</MultiDataTrigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<ControlTemplate
+				x:Key="ComboBoxTemplate"
+				TargetType="{x:Type ComboBox}">
+				<Grid
+					Name="templateRoot"
+					SnapsToDevicePixels="True">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+							ColumnDefinition.Width="0" />
+					</Grid.ColumnDefinitions>
+					<Popup
+						Name="PART_Popup"
+						AllowsTransparency="True"
+						Grid.ColumnSpan="2"
+						FrameworkElement.Margin="1"
+						Popup.PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+						Popup.Placement="Bottom"
+						Popup.IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+						<Themes:SystemDropShadowChrome
+							Name="shadow"
+							Color="Transparent"
+							FrameworkElement.MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}"
+							FrameworkElement.MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+							<Border
+								Name="dropDownBorder"
+								Border.BorderBrush="#151618"
+								Border.BorderThickness="1"
+								Border.Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
+								Padding="4,3,4,2"
+								FrameworkElement.Margin="0,5,0,0"
+								CornerRadius="0">
+								<ScrollViewer
+									Name="DropDownScrollViewer">
+									<Grid
+										Name="grid"
+										RenderOptions.ClearTypeHint="Enabled">
+										<Canvas
+											Name="canvas"
+											FrameworkElement.HorizontalAlignment="Left"
+											FrameworkElement.Height="0"
+											FrameworkElement.VerticalAlignment="Top"
+											FrameworkElement.Width="0">
+											<Rectangle
+												Name="opaqueRect"
+												Shape.Fill="{Binding Background, ElementName=dropDownBorder}"
+												FrameworkElement.Height="{Binding ActualHeight, ElementName=dropDownBorder}"
+												FrameworkElement.Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
+										</Canvas>
+										<ItemsPresenter
+											Name="ItemsPresenter"
+											KeyboardNavigation.DirectionalNavigation="Contained"
+											SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+									</Grid>
+								</ScrollViewer>
+							</Border>
+						</Themes:SystemDropShadowChrome>
+					</Popup>
+					<ToggleButton
+						Name="toggleButton"
+						Control.BorderBrush="{TemplateBinding Control.BorderBrush}"
+						Control.BorderThickness="{TemplateBinding Control.BorderThickness}"
+						Control.Background="{TemplateBinding Control.Background}"
+						Grid.ColumnSpan="2"
+						FrameworkElement.Style="{StaticResource ComboBoxToggleButton}"
+						IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					<ContentPresenter
+						Name="contentPresenter"
+						ContentPresenter.ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
+						ContentPresenter.ContentTemplateSelector="{TemplateBinding ItemsControl.ItemTemplateSelector}"
+						ContentPresenter.Content="{TemplateBinding ComboBox.SelectionBoxItem}"
+						ContentStringFormat="{TemplateBinding ComboBox.SelectionBoxItemStringFormat}"
+						FrameworkElement.HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+						IsHitTestVisible="False"
+						FrameworkElement.Margin="{TemplateBinding Control.Padding}"
+						SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+						FrameworkElement.VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+				</Grid>
+				<ControlTemplate.Triggers>
+					<Trigger
+						SourceName="PART_Popup"
+						Property="Popup.HasDropShadow"
+						Value="True">
+						<Setter
+							TargetName="shadow"
+							Property="FrameworkElement.Margin"
+							Value="0,0,5,5" />
+						<Setter
+							TargetName="shadow"
+							Property="Themes:SystemDropShadowChrome.Color"
+							Value="#151618" />
+					</Trigger>
+					<Trigger
+						Property="ItemsControl.HasItems"
+						Value="False">
+						<Setter
+							TargetName="dropDownBorder"
+							Property="FrameworkElement.Height"
+							Value="95" />
+					</Trigger>
+					<MultiTrigger>
+						<MultiTrigger.Conditions>
+							<Condition
+								Property="ItemsControl.IsGrouping"
+								Value="True" />
+							<Condition
+								Property="VirtualizingPanel.IsVirtualizingWhenGrouping"
+								Value="False" />
+						</MultiTrigger.Conditions>
+						<Setter
+							Property="ScrollViewer.CanContentScroll"
+							Value="False" />
+					</MultiTrigger>
+					<Trigger
+						SourceName="DropDownScrollViewer"
+						Property="ScrollViewer.CanContentScroll"
+						Value="False">
+						<Setter
+							TargetName="opaqueRect"
+							Property="Canvas.Top"
+							Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
+						<Setter
+							TargetName="opaqueRect"
+							Property="Canvas.Left"
+							Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
+					</Trigger>
+				</ControlTemplate.Triggers>
+			</ControlTemplate>
+			<SolidColorBrush
+				x:Key="TextBox.Static.Background"
+				Color="#FFFFFFFF" />
+			<Style
+				x:Key="ComboBoxEditableTextBox"
+				TargetType="{x:Type TextBox}">
+				<Setter
+					Property="FrameworkElement.OverridesDefaultStyle"
+					Value="True" />
+				<Setter
+					Property="UIElement.AllowDrop"
+					Value="True" />
+				<Setter
+					Property="FrameworkElement.MinWidth"
+					Value="0" />
+				<Setter
+					Property="FrameworkElement.MinHeight"
+					Value="0" />
+				<Setter
+					Property="FrameworkElement.FocusVisualStyle"
+					Value="{x:Null}" />
+				<Setter
+					Property="ScrollViewer.PanningMode"
+					Value="VerticalFirst" />
+				<Setter
+					Property="Stylus.IsFlicksEnabled"
+					Value="False" />
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type TextBox}">
+							<ScrollViewer
+								Name="PART_ContentHost"
+								Control.Background="#00FFFFFF"
+								UIElement.Focusable="False"
+								ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+								ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<ControlTemplate
+				x:Key="ComboBoxEditableTemplate"
+				TargetType="{x:Type ComboBox}">
+				<Grid
+					Name="templateRoot"
+					SnapsToDevicePixels="True">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							ColumnDefinition.Width="*" />
+						<ColumnDefinition
+							ColumnDefinition.MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+							ColumnDefinition.Width="0" />
+					</Grid.ColumnDefinitions>
+					<Popup
+						Name="PART_Popup"
+						AllowsTransparency="True"
+						Grid.ColumnSpan="2"
+						Popup.PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+						Popup.Placement="Bottom"
+						Popup.IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}">
+						<Themes:SystemDropShadowChrome
+							Name="shadow"
+							Color="Transparent"
+							FrameworkElement.MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}"
+							FrameworkElement.MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+							<Border
+								Name="dropDownBorder"
+								Border.BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"
+								Border.BorderThickness="1"
+								Border.Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+								<ScrollViewer
+									Name="DropDownScrollViewer">
+									<Grid
+										Name="grid"
+										RenderOptions.ClearTypeHint="Enabled">
+										<Canvas
+											Name="canvas"
+											FrameworkElement.HorizontalAlignment="Left"
+											FrameworkElement.Height="0"
+											FrameworkElement.VerticalAlignment="Top"
+											FrameworkElement.Width="0">
+											<Rectangle
+												Name="opaqueRect"
+												Shape.Fill="{Binding Background, ElementName=dropDownBorder}"
+												FrameworkElement.Height="{Binding ActualHeight, ElementName=dropDownBorder}"
+												FrameworkElement.Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
+										</Canvas>
+										<ItemsPresenter
+											Name="ItemsPresenter"
+											KeyboardNavigation.DirectionalNavigation="Contained"
+											SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+									</Grid>
+								</ScrollViewer>
+							</Border>
+						</Themes:SystemDropShadowChrome>
+					</Popup>
+					<ToggleButton
+						Name="toggleButton"
+						Control.BorderBrush="{TemplateBinding Control.BorderBrush}"
+						Control.BorderThickness="{TemplateBinding Control.BorderThickness}"
+						Control.Background="{TemplateBinding Control.Background}"
+						Grid.ColumnSpan="2"
+						FrameworkElement.Style="{StaticResource ComboBoxToggleButton}"
+						IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+					<Border
+						Name="border"
+						Border.Background="#151618"
+						FrameworkElement.Margin="{TemplateBinding Control.BorderThickness}">
+						<TextBox
+							Name="PART_EditableTextBox"
+							Control.HorizontalContentAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+							FrameworkElement.Margin="{TemplateBinding Control.Padding}"
+							Control.VerticalContentAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+							FrameworkElement.Style="{StaticResource ComboBoxEditableTextBox}"
+							IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" />
+					</Border>
+				</Grid>
+				<ControlTemplate.Triggers>
+					<Trigger
+						Property="UIElement.IsEnabled"
+						Value="False">
+						<Setter
+							TargetName="border"
+							Property="UIElement.Opacity"
+							Value="0.56" />
+					</Trigger>
+					<Trigger
+						Property="UIElement.IsKeyboardFocusWithin"
+						Value="False">
+						<Setter
+							Property="Control.Foreground"
+							Value="#FF000000" />
+					</Trigger>
+					<Trigger
+						SourceName="PART_Popup"
+						Property="Popup.HasDropShadow"
+						Value="True">
+						<Setter
+							TargetName="shadow"
+							Property="FrameworkElement.Margin"
+							Value="0,0,5,5" />
+						<Setter
+							TargetName="shadow"
+							Property="Themes:SystemDropShadowChrome.Color"
+							Value="#151618" />
+					</Trigger>
+					<Trigger
+						Property="ItemsControl.HasItems"
+						Value="False">
+						<Setter
+							TargetName="dropDownBorder"
+							Property="FrameworkElement.Height"
+							Value="95" />
+					</Trigger>
+					<MultiTrigger>
+						<MultiTrigger.Conditions>
+							<Condition
+								Property="ItemsControl.IsGrouping"
+								Value="True" />
+							<Condition
+								Property="VirtualizingPanel.IsVirtualizingWhenGrouping"
+								Value="False" />
+						</MultiTrigger.Conditions>
+						<Setter
+							Property="ScrollViewer.CanContentScroll"
+							Value="False" />
+					</MultiTrigger>
+					<Trigger
+						SourceName="DropDownScrollViewer"
+						Property="ScrollViewer.CanContentScroll"
+						Value="False">
+						<Setter
+							TargetName="opaqueRect"
+							Property="Canvas.Top"
+							Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
+						<Setter
+							TargetName="opaqueRect"
+							Property="Canvas.Left"
+							Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
+					</Trigger>
+				</ControlTemplate.Triggers>
+			</ControlTemplate>
+			<Style
+				x:Key="ComboBoxStyle1"
+				TargetType="{x:Type ComboBox}">
+				<Setter
+					Property="FrameworkElement.FocusVisualStyle"
+					Value="{StaticResource FocusVisual}" />
+				<Setter
+					Property="Control.Background"
+					Value="{StaticResource ComboBox.Static.Background}" />
+				<Setter
+					Property="Control.BorderBrush"
+					Value="{StaticResource ComboBox.Static.Border}" />
+				<Setter
+					Property="Control.Foreground"
+					Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+				<Setter
+					Property="Control.BorderThickness"
+					Value="1" />
+				<Setter
+					Property="ScrollViewer.HorizontalScrollBarVisibility"
+					Value="Auto" />
+				<Setter
+					Property="ScrollViewer.VerticalScrollBarVisibility"
+					Value="Auto" />
+				<Setter
+					Property="Control.Padding"
+					Value="6,3,5,3" />
+				<Setter
+					Property="ScrollViewer.CanContentScroll"
+					Value="True" />
+				<Setter
+					Property="ScrollViewer.PanningMode"
+					Value="Both" />
+				<Setter
+					Property="Stylus.IsFlicksEnabled"
+					Value="False" />
+				<Setter
+					Property="Control.Template"
+					Value="{StaticResource ComboBoxTemplate}" />
+				<Style.Triggers>
+					<Trigger
+						Property="ComboBox.IsEditable"
+						Value="True">
+						<Setter
+							Property="Control.IsTabStop"
+							Value="False" />
+						<Setter
+							Property="Control.Padding"
+							Value="2" />
+						<Setter
+							Property="Control.Template"
+							Value="{StaticResource ComboBoxEditableTemplate}" />
+					</Trigger>
+				</Style.Triggers>
+			</Style>
+			<Style
+				x:Key="CustomTextBox"
+				TargetType="{x:Type TextBox}">
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type TextBox}">
+							<Border
+								Name="border"
+								Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+								Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+								Border.Background="{TemplateBinding Control.Background}"
+								SnapsToDevicePixels="True">
+								<ScrollViewer
+									Name="PART_ContentHost"
+									UIElement.Focusable="False"
+									ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+									ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="False">
+									<Setter
+										TargetName="border"
+										Property="UIElement.Opacity"
+										Value="0" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										TargetName="border"
+										Property="Border.BorderBrush"
+										Value="{x:Null}" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsFocused"
+									Value="True">
+									<Setter
+										TargetName="border"
+										Property="Border.BorderBrush"
+										Value="{x:Null}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="TextBoxBase.SelectionBrush"
+					Value="#0067C7" />
+				<Setter
+					Property="Control.HorizontalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="Control.VerticalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="TextBoxBase.VerticalScrollBarVisibility"
+					Value="Disabled" />
+				<Setter
+					Property="ScrollViewer.CanContentScroll"
+					Value="True" />
+				<Setter
+					Property="FrameworkElement.UseLayoutRounding"
+					Value="False" />
+				<Setter
+					Property="TextBox.MaxLines"
+					Value="1" />
+				<Setter
+					Property="UIElement.RenderTransformOrigin"
+					Value="0.496,0.167" />
+				<Setter
+					Property="Control.Padding"
+					Value="4,0,0,0" />
+				<Setter
+					Property="Control.FontFamily"
+					Value="{StaticResource Montserrat_400}" />
+				<Setter
+					Property="Control.BorderThickness"
+					Value="0" />
+				<Setter
+					Property="Control.FontSize"
+					Value="10" />
+				<Setter
+					Property="Control.Background"
+					Value="#FF16171B" />
+				<Setter
+					Property="Control.Foreground"
+					Value="#FFFFFFFF" />
+				<Setter
+					Property="Control.BorderBrush"
+					Value="{x:Null}" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid>
+			<Border
+				Border.BorderThickness="0"
+				CornerRadius="7"
+				FrameworkElement.Margin="19,50,193,58"
+				Border.Background="#FF1B1C21" />
+			<Grid
+				FrameworkElement.Margin="19,68,193,391"
+				Panel.Background="#FF2B2B2B"
+				FrameworkElement.Height="1" />
+			<ListBox
+				Name="AccountsBox"
+				FrameworkElement.Width="469"
+				ItemsControl.ItemContainerStyle="{DynamicResource ListBoxItemStyle1}"
+				ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				RenderTransformOrigin="0.5,0.5"
+				Panel.ZIndex="1"
+				Control.Padding="0"
+				FrameworkElement.Height="339"
+				FrameworkElement.VerticalAlignment="Top"
+				FrameworkElement.Margin="16,68,0,0"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.Background="{x:Null}"
+				Control.BorderBrush="{x:Null}"
+				Control.Foreground="{x:Null}"
+				PreviewMouseLeftButtonDown="AccountsBox_PreviewMouseLeftButtonDown">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel
+							Orientation="Horizontal" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ListBox>
+		</Grid>
+		<Grid
+			Name="teamsBoxDefault"
+			UIElement.Visibility="Visible">
+			<Border
+				Border.BorderThickness="0"
+				CornerRadius="7"
+				FrameworkElement.Margin="490,50,17,260"
+				Border.Background="#FF1B1C21" />
+			<Grid
+				FrameworkElement.Margin="490,68,17,391"
+				Panel.Background="#FF2B2B2B"
+				FrameworkElement.Height="1" />
+			<Label
+				FrameworkElement.Width="49"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				UseLayoutRounding="False"
+				Control.Padding="5"
+				Control.HorizontalContentAlignment="Center"
+				FrameworkElement.Height="20"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.FontSize="8"
+				Control.Foreground="#FF616161"
+				Control.FontFamily="Montserrat Medium"
+				ContentControl.Content="{DynamicResource m_Login}"
+				FrameworkElement.Margin="505.797,50,0,0"
+				RenderTransformOrigin="0.551,0.5" />
+			<Label
+				FrameworkElement.Width="49"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				UseLayoutRounding="False"
+				Control.Padding="5"
+				Control.HorizontalContentAlignment="Center"
+				FrameworkElement.Height="20"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.FontSize="8"
+				Control.Foreground="#FF616161"
+				Control.FontFamily="Montserrat Medium"
+				ContentControl.Content="{DynamicResource m_Rank5x5}"
+				FrameworkElement.Margin="594.422,50,0,0" />
+		</Grid>
+		<Grid
+			Name="teamsBoxCaseFarm"
+			UIElement.Visibility="Hidden">
+			<Border
+				Border.BorderThickness="0"
+				CornerRadius="7"
+				FrameworkElement.Margin="490,50,17,115"
+				Border.Background="#FF1B1C21" />
+			<Grid
+				FrameworkElement.Margin="490,68,17,391"
+				Panel.Background="#FF2B2B2B"
+				FrameworkElement.Height="1" />
+			<Label
+				FrameworkElement.Width="49"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				UseLayoutRounding="False"
+				Control.Padding="5"
+				Control.HorizontalContentAlignment="Center"
+				FrameworkElement.Height="20"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.FontSize="8"
+				Control.Foreground="#FF616161"
+				Control.FontFamily="Montserrat Medium"
+				ContentControl.Content="{DynamicResource m_Login}"
+				FrameworkElement.Margin="505.797,50,0,0"
+				RenderTransformOrigin="0.551,0.5" />
+			<Label
+				FrameworkElement.Width="49"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				UseLayoutRounding="False"
+				Control.Padding="5"
+				Control.HorizontalContentAlignment="Center"
+				FrameworkElement.Height="20"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.FontSize="8"
+				Control.Foreground="#FF616161"
+				Control.FontFamily="Montserrat Medium"
+				ContentControl.Content="{DynamicResource m_Rank5x5}"
+				FrameworkElement.Margin="594.422,50,0,0" />
+		</Grid>
+		<Grid
+			Name="settingsBoxDefault"
+			FrameworkElement.Margin="490,208,17,19"
+			UIElement.Visibility="Hidden">
+			<Rectangle
+				Shape.Fill="#FF1B1C21"
+				RadiusX="5"
+				RadiusY="5" />
+			<ListBox
+				Name="playersBox"
+				AllowDrop="True"
+				FrameworkElement.Margin="0,-140,0,0"
+				ItemsControl.ItemContainerStyle="{DynamicResource ListBoxItemStyle1}"
+				FrameworkElement.HorizontalAlignment="Center"
+				ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="0.5,0.5"
+				Panel.ZIndex="1"
+				Control.Padding="0"
+				FrameworkElement.Height="127"
+				FrameworkElement.Width="162"
+				Control.Background="{x:Null}"
+				Control.BorderBrush="{x:Null}"
+				Control.Foreground="{x:Null}"
+				Drop="ListBox_Drop" />
+			<Button
+				Name="deActivateFirstTeam"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Height="20"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="10,10,81,203"
+				Control.FontSize="11">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Border
+								Border.Background="#151618"
+								CornerRadius="5,0,0,5" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_FirstTeam}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="9"
+								Control.FontFamily="Montserrat Medium"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="activateFirstTeam"
+				UIElement.Visibility="Hidden"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Height="20"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="10,10,81,203"
+				Click="activateFirstTeam_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Border
+								Border.Background="#232429"
+								CornerRadius="5,0,0,5" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_FirstTeam}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="9"
+								Control.FontFamily="Montserrat Medium"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="deActivateSecondTeam"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Height="20"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="81,10,10,203">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Border
+								Border.Background="#151618"
+								CornerRadius="0,5,5,0" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_SecondTeam}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="9"
+								Control.FontFamily="Montserrat Medium"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="activateSecondTeam"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Height="20"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="81,10,10,203"
+				Click="activateSecondTeam_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Border
+								Border.Background="#232429"
+								CornerRadius="0,5,5,0" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_SecondTeam}"
+								Control.Foreground="#FFFFFFFF"
+								Control.FontSize="9"
+								Control.FontFamily="Montserrat Medium"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="deleteSelectedAccounts"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="37,40,103,171"
+				Click="deleteSelectedAccounts_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								Shape.Fill="#151618" />
+							<Image
+								RenderOptions.BitmapScalingMode="HighQuality"
+								FrameworkElement.Width="10"
+								FrameworkElement.Height="10"
+								Image.Source="{Binding BigTrash}" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="swapSelectedAccounts"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="10,40,130,171"
+				Click="swapSelectedAccounts_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								Shape.Fill="#151618" />
+							<Image
+								RenderOptions.BitmapScalingMode="HighQuality"
+								FrameworkElement.Width="12"
+								FrameworkElement.Height="12"
+								Image.Source="{Binding Swap}" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Border
+				CornerRadius="4"
+				Border.Background="#151618"
+				Border.BorderThickness="0"
+				FrameworkElement.Margin="64,40,10,171" />
+			<TextBlock
+				Name="toolTipSessionName"
+				FrameworkElement.Margin="77,46,21,176"
+				TextBlock.Text="{DynamicResource m_SessionName}"
+				TextBlock.Foreground="#989898"
+				TextBlock.FontSize="9"
+				TextBlock.FontFamily="Montserrat Medium"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center"
+				UIElement.Visibility="{Binding ElementName=sessionNameBox, Path=Text.IsEmpty, Converter='{StaticResource BooleanToVisibilityConverter}'}" />
+			<TextBox
+				Name="sessionNameBox"
+				TextBox.Text=""
+				Control.BorderThickness="0"
+				CaretBrush="#FFFFFFFF"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.Height="22"
+				FrameworkElement.VerticalAlignment="Top"
+				TextAlignment="Center"
+				FrameworkElement.Width="83.032"
+				Control.Background="#00FFFFFF"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontSize="11"
+				Control.HorizontalContentAlignment="Center"
+				Control.VerticalContentAlignment="Center"
+				VerticalScrollBarVisibility="Disabled"
+				ScrollViewer.CanContentScroll="True"
+				UseLayoutRounding="False"
+				MaxLines="1"
+				Control.Padding="4,0,0,0"
+				Panel.ZIndex="201"
+				FrameworkElement.Margin="66.859,39.667,12.109,0"
+				Control.BorderBrush="{x:Null}"
+				SelectionBrush="{x:Null}"
+				MouseDown="sessionNameBox_MouseDown">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							x:Key="{x:Type TextBox}"
+							TargetType="{x:Type TextBox}">
+							<Setter
+								Property="Control.Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type TextBox}">
+										<Border
+											Name="border"
+											Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+											Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+											Border.Background="{TemplateBinding Control.Background}"
+											SnapsToDevicePixels="True">
+											<ScrollViewer
+												Name="PART_ContentHost"
+												UIElement.Focusable="False"
+												ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+												ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+										</Border>
+										<ControlTemplate.Triggers>
+											<Trigger
+												Property="UIElement.IsEnabled"
+												Value="False">
+												<Setter
+													TargetName="border"
+													Property="UIElement.Opacity"
+													Value="0" />
+											</Trigger>
+											<Trigger
+												Property="UIElement.IsMouseOver"
+												Value="False">
+												<Setter
+													TargetName="border"
+													Property="Border.BorderBrush"
+													Value="{x:Null}" />
+											</Trigger>
+											<Trigger
+												Property="UIElement.IsFocused"
+												Value="False">
+												<Setter
+													TargetName="border"
+													Property="Border.BorderBrush"
+													Value="{x:Null}" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+			</TextBox>
+			<Label
+				Name="OptTitle"
+				FrameworkElement.Width="67"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				UseLayoutRounding="False"
+				Control.Padding="0"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Height="24"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.FontSize="12"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontFamily="Montserrat Medium"
+				ContentControl.Content="{DynamicResource m_Options}"
+				FrameworkElement.Margin="10,72,0,0" />
+			<Grid
+				Name="clientBoostOptions"
+				UIElement.Visibility="Hidden">
+				<Border
+					CornerRadius="4"
+					Border.Background="#151618"
+					Border.BorderThickness="0"
+					FrameworkElement.Margin="68,168,10,45" />
+				<TextBlock
+					FrameworkElement.Margin="84,173,0,0"
+					TextBlock.Text="{DynamicResource m_InviteCode}"
+					TextBlock.Foreground="#989898"
+					TextBlock.FontSize="9"
+					TextBlock.FontFamily="Montserrat Medium"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Width="51"
+					UIElement.Visibility="{Binding ElementName=clientCode, Path=Text.IsEmpty, Converter='{StaticResource BooleanToVisibilityConverter}'}" />
+				<TextBox
+					Name="clientCode"
+					TextBox.Text=""
+					Control.BorderThickness="0"
+					CaretBrush="#FFFFFFFF"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.Height="20"
+					FrameworkElement.VerticalAlignment="Top"
+					TextAlignment="Center"
+					FrameworkElement.Width="80"
+					Control.Background="#00FFFFFF"
+					Control.Foreground="#FFFFFFFF"
+					Control.FontFamily="Montserrat Medium"
+					Control.FontSize="11"
+					Control.HorizontalContentAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					VerticalScrollBarVisibility="Disabled"
+					ScrollViewer.CanContentScroll="True"
+					UseLayoutRounding="False"
+					MaxLines="1"
+					Control.Padding="4,0,0,0"
+					Panel.ZIndex="201"
+					FrameworkElement.Margin="70,168,0,0"
+					Control.BorderBrush="{x:Null}"
+					SelectionBrush="{x:Null}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type TextBox}"
+								TargetType="{x:Type TextBox}">
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type TextBox}">
+											<Border
+												Name="border"
+												Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+												Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+												Border.Background="{TemplateBinding Control.Background}"
+												SnapsToDevicePixels="True">
+												<ScrollViewer
+													Name="PART_ContentHost"
+													UIElement.Focusable="False"
+													ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+													ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger
+													Property="UIElement.IsEnabled"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="UIElement.Opacity"
+														Value="0" />
+												</Trigger>
+												<Trigger
+													Property="UIElement.IsMouseOver"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="Border.BorderBrush"
+														Value="{x:Null}" />
+												</Trigger>
+												<Trigger
+													Property="UIElement.IsFocused"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="Border.BorderBrush"
+														Value="{x:Null}" />
+												</Trigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</TextBox>
+				<Image
+					Name="rankImg"
+					RenderOptions.BitmapScalingMode="HighQuality"
+					Image.Source="/resources/img/ranks/0.png"
+					FrameworkElement.Width="50"
+					FrameworkElement.Height="20"
+					FrameworkElement.Margin="10,168,102,45"
+					MouseDown="rankImg_MouseDown"
+					MouseWheel="rankImg_MouseWheel" />
+			</Grid>
+			<Grid
+				Name="rankBoostOptions"
+				UIElement.Visibility="Hidden">
+				<Border
+					CornerRadius="6"
+					Border.Background="#151618"
+					Border.BorderThickness="0"
+					FrameworkElement.Margin="68,164,10,43" />
+				<ComboBox
+					Name="comboBox"
+					Control.Background="#151618"
+					Control.Foreground="#fff"
+					FrameworkElement.HorizontalAlignment="Left"
+					Control.BorderThickness="0"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Width="76"
+					FrameworkElement.Height="22"
+					Control.FontFamily="Montserrat Medium"
+					Panel.ZIndex="202"
+					FrameworkElement.Style="{DynamicResource ComboBoxStyle1}"
+					FrameworkElement.Margin="72,167,0,0"
+					Control.FontSize="11"
+					Control.BorderBrush="{x:Null}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<SolidColorBrush
+								x:Key="{x:Static SystemColors.WindowBrushKey}"
+								Color="#151618" />
+							<SolidColorBrush
+								x:Key="{x:Static SystemColors.HighlightBrushKey}"
+								Color="Transparent" />
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+					<ComboBoxItem
+						ContentControl.Content="Team 1" />
+					<ComboBoxItem
+						ContentControl.Content="Team 2" />
+					<ComboBoxItem
+						ContentControl.Content="Win/Lose" />
+					<ComboBoxItem
+						ContentControl.Content="2Win/2Lose" />
+				</ComboBox>
+				<Border
+					CornerRadius="6"
+					Border.Background="#151618"
+					Border.BorderThickness="0"
+					FrameworkElement.Margin="10,164,99,43" />
+				<TextBlock
+					FrameworkElement.Margin="18,171,0,0"
+					TextBlock.Text="{DynamicResource m_Amount}"
+					TextBlock.Foreground="#989898"
+					TextBlock.FontSize="9"
+					TextBlock.FontFamily="Montserrat Medium"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Width="38"
+					FrameworkElement.Height="11"
+					UIElement.Visibility="{Binding ElementName=countGame_rankBoost, Path=Text.IsEmpty, Converter='{StaticResource BooleanToVisibilityConverter}'}" />
+				<TextBox
+					Name="countGame_rankBoost"
+					TextBox.Text=""
+					Control.BorderThickness="0"
+					CaretBrush="#FFFFFFFF"
+					FrameworkElement.HorizontalAlignment="Left"
+					FrameworkElement.Height="22"
+					FrameworkElement.VerticalAlignment="Top"
+					TextAlignment="Center"
+					FrameworkElement.Width="53"
+					Control.Background="#00FFFFFF"
+					Control.Foreground="#FFFFFFFF"
+					Control.FontFamily="Montserrat Medium"
+					Control.FontSize="11"
+					Control.HorizontalContentAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					VerticalScrollBarVisibility="Disabled"
+					ScrollViewer.CanContentScroll="True"
+					UseLayoutRounding="False"
+					MaxLines="1"
+					Control.Padding="4,0,0,0"
+					Panel.ZIndex="201"
+					FrameworkElement.Margin="10,166,0,0"
+					Control.BorderBrush="{x:Null}"
+					SelectionBrush="{x:Null}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type TextBox}"
+								TargetType="{x:Type TextBox}">
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type TextBox}">
+											<Border
+												Name="border"
+												Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+												Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+												Border.Background="{TemplateBinding Control.Background}"
+												SnapsToDevicePixels="True">
+												<ScrollViewer
+													Name="PART_ContentHost"
+													UIElement.Focusable="False"
+													ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+													ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger
+													Property="UIElement.IsEnabled"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="UIElement.Opacity"
+														Value="0" />
+												</Trigger>
+												<Trigger
+													Property="UIElement.IsMouseOver"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="Border.BorderBrush"
+														Value="{x:Null}" />
+												</Trigger>
+												<Trigger
+													Property="UIElement.IsFocused"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="Border.BorderBrush"
+														Value="{x:Null}" />
+												</Trigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</TextBox>
+			</Grid>
+			<Grid
+				Name="xpBoostOptions"
+				UIElement.Visibility="Hidden">
+				<Border
+					CornerRadius="6"
+					Border.Background="#151618"
+					Border.BorderThickness="1"
+					FrameworkElement.Margin="36,164,36,43" />
+				<TextBlock
+					FrameworkElement.Margin="61,172,62,0"
+					TextBlock.Text="{DynamicResource m_Amount}"
+					TextBlock.Foreground="#989898"
+					TextBlock.FontSize="9"
+					TextBlock.FontFamily="Montserrat Medium"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Width="39"
+					UIElement.Visibility="{Binding ElementName=countGame_xpBoost, Path=Text.IsEmpty, Converter='{StaticResource BooleanToVisibilityConverter}'}" />
+				<TextBox
+					Name="countGame_xpBoost"
+					TextBox.Text=""
+					Control.BorderThickness="0"
+					CaretBrush="#FFFFFFFF"
+					FrameworkElement.HorizontalAlignment="Center"
+					FrameworkElement.Height="22"
+					FrameworkElement.VerticalAlignment="Top"
+					TextAlignment="Center"
+					FrameworkElement.Width="82"
+					Control.Background="#00FFFFFF"
+					Control.Foreground="#FFFFFFFF"
+					Control.FontFamily="Montserrat Medium"
+					Control.FontSize="11"
+					Control.HorizontalContentAlignment="Center"
+					Control.VerticalContentAlignment="Center"
+					VerticalScrollBarVisibility="Disabled"
+					ScrollViewer.CanContentScroll="True"
+					UseLayoutRounding="False"
+					MaxLines="1"
+					Control.Padding="1,0,0,0"
+					Panel.ZIndex="201"
+					FrameworkElement.Margin="40.25,166.125,39.75,0"
+					Control.BorderBrush="{x:Null}"
+					SelectionBrush="{x:Null}">
+					<FrameworkElement.Resources>
+						<ResourceDictionary>
+							<Style
+								x:Key="{x:Type TextBox}"
+								TargetType="{x:Type TextBox}">
+								<Setter
+									Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate
+											TargetType="{x:Type TextBox}">
+											<Border
+												Name="border"
+												Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+												Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+												Border.Background="{TemplateBinding Control.Background}"
+												SnapsToDevicePixels="True">
+												<ScrollViewer
+													Name="PART_ContentHost"
+													UIElement.Focusable="False"
+													ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+													ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger
+													Property="UIElement.IsEnabled"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="UIElement.Opacity"
+														Value="0" />
+												</Trigger>
+												<Trigger
+													Property="UIElement.IsMouseOver"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="Border.BorderBrush"
+														Value="{x:Null}" />
+												</Trigger>
+												<Trigger
+													Property="UIElement.IsFocused"
+													Value="False">
+													<Setter
+														TargetName="border"
+														Property="Border.BorderBrush"
+														Value="{x:Null}" />
+												</Trigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ResourceDictionary>
+					</FrameworkElement.Resources>
+				</TextBox>
+			</Grid>
+		</Grid>
+		<Grid
+			Name="settingsBoxCaseFarm"
+			FrameworkElement.Margin="490,208,17,19">
+			<Rectangle
+				Shape.Fill="#FF1B1C21"
+				RadiusX="5"
+				RadiusY="5"
+				FrameworkElement.Margin="0,151,0,0" />
+			<ListBox
+				Name="playersBoxCaseFarm"
+				AllowDrop="True"
+				FrameworkElement.Margin="0,-140,0,0"
+				ItemsControl.ItemContainerStyle="{DynamicResource ListBoxItemStyle1}"
+				FrameworkElement.HorizontalAlignment="Center"
+				ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="0.5,0.5"
+				Panel.ZIndex="1"
+				Control.Padding="0"
+				FrameworkElement.Height="277"
+				FrameworkElement.Width="162"
+				Control.Background="{x:Null}"
+				Control.BorderBrush="{x:Null}"
+				Control.Foreground="{x:Null}"
+				Drop="ListBox_Drop" />
+			<Button
+				Name="deleteSelectedAccountsCaseFarm"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="10,163,130,48"
+				Click="deleteSelectedAccounts_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								Shape.Fill="#151618" />
+							<Image
+								RenderOptions.BitmapScalingMode="HighQuality"
+								FrameworkElement.Width="10"
+								FrameworkElement.Height="10"
+								Image.Source="{Binding BigTrash}" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Border
+				CornerRadius="4"
+				Border.Background="#151618"
+				Border.BorderThickness="0"
+				FrameworkElement.Margin="39,163,10,48" />
+			<TextBlock
+				Name="toolTipSessionNameCaseFarm"
+				FrameworkElement.Margin="39,169,10,53"
+				TextBlock.Text="{DynamicResource m_SessionName}"
+				TextBlock.Foreground="#989898"
+				TextBlock.FontSize="9"
+				TextBlock.FontFamily="Montserrat Medium"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.VerticalAlignment="Center"
+				FrameworkElement.Width="113"
+				TextAlignment="Center"
+				FrameworkElement.Height="11"
+				UIElement.Visibility="{Binding ElementName=sessionNameBoxCaseFarm, Path=Text.IsEmpty, Converter='{StaticResource BooleanToVisibilityConverter}'}" />
+			<TextBox
+				Name="sessionNameBoxCaseFarm"
+				TextBox.Text=""
+				Control.BorderThickness="0"
+				CaretBrush="#FFFFFFFF"
+				FrameworkElement.HorizontalAlignment="Center"
+				FrameworkElement.Height="22"
+				FrameworkElement.VerticalAlignment="Top"
+				TextAlignment="Center"
+				FrameworkElement.Width="113"
+				Control.Background="#00FFFFFF"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontSize="11"
+				Control.HorizontalContentAlignment="Center"
+				Control.VerticalContentAlignment="Center"
+				VerticalScrollBarVisibility="Disabled"
+				ScrollViewer.CanContentScroll="True"
+				UseLayoutRounding="False"
+				MaxLines="1"
+				Control.Padding="4,0,0,0"
+				Panel.ZIndex="201"
+				FrameworkElement.Margin="39,163,10,0"
+				Control.BorderBrush="{x:Null}"
+				SelectionBrush="{x:Null}"
+				MouseDown="caseSessionNameBox_MouseDown">
+				<FrameworkElement.Resources>
+					<ResourceDictionary>
+						<Style
+							x:Key="{x:Type TextBox}"
+							TargetType="{x:Type TextBox}">
+							<Setter
+								Property="Control.Template">
+								<Setter.Value>
+									<ControlTemplate
+										TargetType="{x:Type TextBox}">
+										<Border
+											Name="border"
+											Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+											Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+											Border.Background="{TemplateBinding Control.Background}"
+											SnapsToDevicePixels="True">
+											<ScrollViewer
+												Name="PART_ContentHost"
+												UIElement.Focusable="False"
+												ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+												ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+										</Border>
+										<ControlTemplate.Triggers>
+											<Trigger
+												Property="UIElement.IsEnabled"
+												Value="False">
+												<Setter
+													TargetName="border"
+													Property="UIElement.Opacity"
+													Value="0" />
+											</Trigger>
+											<Trigger
+												Property="UIElement.IsMouseOver"
+												Value="False">
+												<Setter
+													TargetName="border"
+													Property="Border.BorderBrush"
+													Value="{x:Null}" />
+											</Trigger>
+											<Trigger
+												Property="UIElement.IsFocused"
+												Value="False">
+												<Setter
+													TargetName="border"
+													Property="Border.BorderBrush"
+													Value="{x:Null}" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</ResourceDictionary>
+				</FrameworkElement.Resources>
+			</TextBox>
+			<Label
+				Name="OptionsText"
+				FrameworkElement.Width="67"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.VerticalAlignment="Top"
+				UseLayoutRounding="False"
+				Control.Padding="0"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Height="24"
+				FrameworkElement.HorizontalAlignment="Left"
+				Control.FontSize="12"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontFamily="Montserrat Medium"
+				ContentControl.Content="{DynamicResource m_Options}"
+				FrameworkElement.Margin="10,72,0,0" />
+		</Grid>
+		<Grid
+			Name="mainButtons"
+			FrameworkElement.Margin="490,208,17,19">
+			<Button
+				Name="saveButton"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="84,198,10,10"
+				Click="saveButton_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								FrameworkElement.Width="Auto"
+								FrameworkElement.Height="Auto"
+								Shape.Fill="#0067C7" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_Save}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="10"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="backButton"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="10,198,84,10"
+				Click="backButton_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								FrameworkElement.Width="Auto"
+								FrameworkElement.Height="Auto"
+								Shape.Fill="#AE2828" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_Cancel}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="10"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="saveButton_Transfer"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="84,210,10,-2"
+				Click="saveButton_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								FrameworkElement.Width="Auto"
+								FrameworkElement.Height="Auto"
+								Shape.Fill="#0067C7" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_Save}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="10"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+			<Button
+				Name="backButton_Transfer"
+				UIElement.Visibility="Visible"
+				Cursor="Hand"
+				Control.VerticalContentAlignment="Center"
+				Control.HorizontalContentAlignment="Left"
+				Control.FontFamily="Montserrat Medium"
+				Control.Padding="1,0,1,1"
+				FrameworkElement.Margin="10,210,84,-2"
+				Click="backButton_Click">
+				<Control.Template>
+					<ControlTemplate>
+						<Grid>
+							<Rectangle
+								RadiusX="4 px"
+								RadiusY="4 px"
+								FrameworkElement.Width="Auto"
+								FrameworkElement.Height="Auto"
+								Shape.Fill="#AE2828" />
+							<Label
+								Control.HorizontalContentAlignment="Center"
+								Control.VerticalContentAlignment="Center"
+								ContentControl.Content="{DynamicResource m_Cancel}"
+								Control.Foreground="#FFFFFFFF"
+								FrameworkElement.Margin="0"
+								Control.FontSize="10"
+								Control.FontFamily="Montserrat SemiBold"
+								Control.Padding="5,4,5,5" />
+						</Grid>
+					</ControlTemplate>
+				</Control.Template>
+			</Button>
+		</Grid>
+		<Grid
+			Name="checkBoxes">
+			<CheckBox
+				Name="isShortGame"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="0.5,0.5"
+				Control.Background="#FF636363"
+				FrameworkElement.Height="16"
+				Cursor="Hand"
+				FrameworkElement.Margin="500,306,155,0"
+				ContentControl.Content="ddd"
+				Control.BorderBrush="{x:Null}"
+				Control.Foreground="{x:Null}">
+				<Control.Template>
+					<ControlTemplate
+						TargetType="{x:Type CheckBox}">
+						<Grid>
+							<Rectangle
+								Name="main_checker"
+								RadiusX="2 px"
+								RadiusY="2 px"
+								FrameworkElement.Width="13.5px"
+								FrameworkElement.Height="13.5px"
+								Shape.StrokeThickness="1"
+								Shape.Stroke="#FF444444"
+								Shape.Fill="#FF1B1C21"
+								FrameworkElement.HorizontalAlignment="Left" />
+							<Grid
+								Name="Checker"
+								UIElement.Visibility="Collapsed">
+								<Rectangle
+									RadiusX="2 px"
+									RadiusY="2 px"
+									FrameworkElement.Width="13.5px"
+									FrameworkElement.Height="13.5px"
+									Shape.StrokeThickness="1"
+									Shape.Stroke="#FF2E2E2E"
+									Shape.Fill="#FF2E2E2E" />
+								<Image
+									FrameworkElement.Width="11 px"
+									FrameworkElement.Height="11 px"
+									RenderOptions.BitmapScalingMode="Fant"
+									Panel.ZIndex="3"
+									Image.Source="{Binding AccountMark}" />
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger
+								Property="ToggleButton.IsChecked"
+								Value="True">
+								<Setter
+									TargetName="Checker"
+									Property="UIElement.Visibility">
+									<Setter.Value>
+										<Visibility>Visible</Visibility>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									TargetName="main_checker"
+									Property="Shape.Fill">
+									<Setter.Value>
+										<Brush>#27292F</Brush>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									TargetName="main_checker"
+									Property="UIElement.Opacity">
+									<Setter.Value>
+										<System:Double>1</System:Double>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Control.Template>
+			</CheckBox>
+			<Label
+				ContentControl.Content="{DynamicResource m_ShortGame}"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.Margin="519,306,0,0"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="1.316,3.462"
+				FrameworkElement.Height="16"
+				Control.Padding="0"
+				Control.VerticalContentAlignment="Center"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontSize="10"
+				Control.Foreground="#FFFFFFFF" />
+			<CheckBox
+				Name="isAutoMVP"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="0.5,0.5"
+				Control.Background="#FF636363"
+				FrameworkElement.Height="16"
+				Cursor="Hand"
+				FrameworkElement.Margin="500,327,155,0"
+				ContentControl.Content="ddd"
+				Control.BorderBrush="{x:Null}"
+				Control.Foreground="{x:Null}">
+				<Control.Template>
+					<ControlTemplate
+						TargetType="{x:Type CheckBox}">
+						<Grid>
+							<Rectangle
+								Name="main_checker"
+								RadiusX="2 px"
+								RadiusY="2 px"
+								FrameworkElement.Width="13.5px"
+								FrameworkElement.Height="13.5px"
+								Shape.StrokeThickness="1"
+								Shape.Stroke="#FF444444"
+								Shape.Fill="#FF1B1C21"
+								FrameworkElement.HorizontalAlignment="Left" />
+							<Grid
+								Name="Checker"
+								UIElement.Visibility="Collapsed">
+								<Rectangle
+									RadiusX="2 px"
+									RadiusY="2 px"
+									FrameworkElement.Width="13.5px"
+									FrameworkElement.Height="13.5px"
+									Shape.StrokeThickness="1"
+									Shape.Stroke="#FF2E2E2E"
+									Shape.Fill="#FF2E2E2E" />
+								<Image
+									FrameworkElement.Width="11 px"
+									FrameworkElement.Height="11 px"
+									RenderOptions.BitmapScalingMode="Fant"
+									Panel.ZIndex="3"
+									Image.Source="{Binding AccountMark}" />
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger
+								Property="ToggleButton.IsChecked"
+								Value="True">
+								<Setter
+									TargetName="Checker"
+									Property="UIElement.Visibility">
+									<Setter.Value>
+										<Visibility>Visible</Visibility>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									TargetName="main_checker"
+									Property="Shape.Fill">
+									<Setter.Value>
+										<Brush>#27292F</Brush>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									TargetName="main_checker"
+									Property="UIElement.Opacity">
+									<Setter.Value>
+										<System:Double>1</System:Double>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Control.Template>
+			</CheckBox>
+			<Label
+				Name="BOTType"
+				ContentControl.Content="{DynamicResource m_AutoMVP}"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.Margin="519,327,0,0"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="1.316,3.462"
+				FrameworkElement.Height="16"
+				Control.Padding="0"
+				Control.VerticalContentAlignment="Center"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontSize="10"
+				Control.Foreground="#FFFFFFFF" />
+			<CheckBox
+				Name="isSwapLeaders"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="0.5,0.5"
+				Control.Background="#FF636363"
+				FrameworkElement.Height="16"
+				Cursor="Hand"
+				FrameworkElement.Margin="500,348,155,0"
+				ContentControl.Content="ddd"
+				Control.BorderBrush="{x:Null}"
+				Control.Foreground="{x:Null}">
+				<Control.Template>
+					<ControlTemplate
+						TargetType="{x:Type CheckBox}">
+						<Grid>
+							<Rectangle
+								Name="main_checker"
+								RadiusX="2 px"
+								RadiusY="2 px"
+								FrameworkElement.Width="13.5px"
+								FrameworkElement.Height="13.5px"
+								Shape.StrokeThickness="1"
+								Shape.Stroke="#FF444444"
+								Shape.Fill="#FF1B1C21"
+								FrameworkElement.HorizontalAlignment="Left" />
+							<Grid
+								Name="Checker"
+								UIElement.Visibility="Collapsed">
+								<Rectangle
+									RadiusX="2 px"
+									RadiusY="2 px"
+									FrameworkElement.Width="13.5px"
+									FrameworkElement.Height="13.5px"
+									Shape.StrokeThickness="1"
+									Shape.Stroke="#FF2E2E2E"
+									Shape.Fill="#FF2E2E2E" />
+								<Image
+									FrameworkElement.Width="11 px"
+									FrameworkElement.Height="11 px"
+									RenderOptions.BitmapScalingMode="Fant"
+									Panel.ZIndex="3"
+									Image.Source="{Binding AccountMark}" />
+							</Grid>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger
+								Property="ToggleButton.IsChecked"
+								Value="True">
+								<Setter
+									TargetName="Checker"
+									Property="UIElement.Visibility">
+									<Setter.Value>
+										<Visibility>Visible</Visibility>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									TargetName="main_checker"
+									Property="Shape.Fill">
+									<Setter.Value>
+										<Brush>#27292F</Brush>
+									</Setter.Value>
+								</Setter>
+								<Setter
+									TargetName="main_checker"
+									Property="UIElement.Opacity">
+									<Setter.Value>
+										<System:Double>1</System:Double>
+									</Setter.Value>
+								</Setter>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Control.Template>
+			</CheckBox>
+			<Label
+				ContentControl.Content="{DynamicResource m_SwapLeaders}"
+				FrameworkElement.HorizontalAlignment="Left"
+				FrameworkElement.Margin="519,348,0,0"
+				FrameworkElement.VerticalAlignment="Top"
+				RenderTransformOrigin="1.316,3.462"
+				FrameworkElement.Height="16"
+				Control.Padding="0"
+				Control.VerticalContentAlignment="Center"
+				Control.FontFamily="Montserrat Medium"
+				Control.FontSize="10"
+				Control.Foreground="#FFFFFFFF" />
+		</Grid>
+		<Label
+			Name="n_page"
+			ContentControl.Content="0/0"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="19,419,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="72"
+			Control.Foreground="#FFFFFFFF"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="11"
+			FrameworkElement.Height="18"
+			Control.Padding="4,0,0,0"
+			Control.VerticalContentAlignment="Center"
+			RenderTransformOrigin="0.5,0.6" />
+		<Button
+			Name="leftPage"
+			ContentControl.Content="Create"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="25"
+			FrameworkElement.Height="22"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="421,419,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Control.BorderBrush="{x:Null}"
+			Click="leftPage_Click">
+			<UIElement.Effect>
+				<DropShadowEffect
+					Opacity="0.1"
+					ShadowDepth="4"
+					Direction="1" />
+			</UIElement.Effect>
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							Shape.Fill="#0067C7"
+							RadiusX="5 px"
+							RadiusY="5 px" />
+						<Image
+							RenderOptions.BitmapScalingMode="Fant"
+							FrameworkElement.Width="12 px"
+							FrameworkElement.Margin="6,0,7,0"
+							Image.Source="{Binding PageLeft}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Button
+			Name="rightPage"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="25"
+			FrameworkElement.Height="22"
+			Control.Foreground="#FFFFFFFF"
+			Control.Background="#FF008BFF"
+			Cursor="Hand"
+			Panel.ZIndex="5"
+			FrameworkElement.Margin="451,419,0,0"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontWeight="Normal"
+			Control.BorderBrush="{x:Null}"
+			Click="rightPage_Click">
+			<UIElement.Effect>
+				<DropShadowEffect
+					Opacity="0.1"
+					ShadowDepth="4"
+					Direction="1" />
+			</UIElement.Effect>
+			<Control.Template>
+				<ControlTemplate>
+					<Grid>
+						<Rectangle
+							Shape.Fill="#0067C7"
+							RadiusX="5 px"
+							RadiusY="5 px" />
+						<Image
+							RenderOptions.BitmapScalingMode="Fant"
+							FrameworkElement.Width="12 px"
+							FrameworkElement.Margin="6,0,7,0"
+							Image.Source="{Binding PageRight}" />
+					</Grid>
+				</ControlTemplate>
+			</Control.Template>
+		</Button>
+		<Label
+			Name="label_Copy4"
+			ContentControl.Content="{DynamicResource m_Login}"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="49.583,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="96"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Left"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Label
+			Name="label_Copy1"
+			ContentControl.Content="{DynamicResource m_Prime}"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="434.583,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="36"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Left"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Label
+			Name="label_Copy2"
+			ContentControl.Content="2x2"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="399.833,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="25"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Label
+			Name="label_Copy3"
+			ContentControl.Content="5x5"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="353.49,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="39.75"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Label
+			Name="label_Copy5"
+			ContentControl.Content="{DynamicResource m_Level}"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="225.583,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="25"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Label
+			Name="label_Copy6"
+			ContentControl.Content="2x2"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="314.333,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="24.25"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Label
+			Name="label_Copy7"
+			ContentControl.Content="5x5"
+			FrameworkElement.HorizontalAlignment="Left"
+			FrameworkElement.Margin="268.458,50,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="24"
+			Control.Foreground="#FF616161"
+			Control.HorizontalContentAlignment="Center"
+			Control.FontFamily="Montserrat Medium"
+			Control.FontSize="8"
+			FrameworkElement.Height="20"
+			Control.VerticalContentAlignment="Center"
+			Control.Padding="5"
+			UseLayoutRounding="False" />
+		<Image
+			Name="mark"
+			UIElement.Visibility="Visible"
+			Cursor="Hand"
+			Panel.ZIndex="1"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			FrameworkElement.Height="12"
+			FrameworkElement.VerticalAlignment="Top"
+			Image.Source="/VertigoBoostPanel;component/Resources/marks/0.png"
+			Image.Stretch="Uniform"
+			StretchDirection="Both"
+			FrameworkElement.FlowDirection="LeftToRight"
+			RenderTransformOrigin="0.833,0.5"
+			FrameworkElement.Margin="205,53,450,0" />
+		<CheckBox
+			Name="checkbox"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Margin="24,50,626,0"
+			RenderTransformOrigin="0.5,0.5"
+			Control.Background="#FFAEAEAE"
+			FrameworkElement.Height="19"
+			Cursor="Hand"
+			Control.BorderBrush="{x:Null}"
+			Control.Foreground="{x:Null}"
+			Checked="Checked"
+			Unchecked="Unchecked"
+			PreviewMouseRightButtonDown="checkbox_PreviewMouseRightButtonDown">
+			<Control.Template>
+				<ControlTemplate
+					TargetType="{x:Type CheckBox}">
+					<Grid>
+						<Rectangle
+							Name="main_checker"
+							RadiusX="2 px"
+							RadiusY="2 px"
+							FrameworkElement.Width="13.5px"
+							FrameworkElement.Height="13.5px"
+							Shape.StrokeThickness="1"
+							Shape.Stroke="#FF444444"
+							Shape.Fill="#FF1B1C21" />
+						<Grid
+							Name="Checker"
+							UIElement.Visibility="Collapsed">
+							<Rectangle
+								RadiusX="2 px"
+								RadiusY="2 px"
+								FrameworkElement.Width="13.5px"
+								FrameworkElement.Height="13.5px"
+								Shape.StrokeThickness="1"
+								Shape.Stroke="#FF2E2E2E"
+								Shape.Fill="#FF2E2E2E" />
+							<Image
+								FrameworkElement.Width="11 px"
+								FrameworkElement.Height="11 px"
+								RenderOptions.BitmapScalingMode="Fant"
+								Panel.ZIndex="3"
+								Image.Source="{Binding AccountMark}" />
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="ToggleButton.IsChecked"
+							Value="True">
+							<Setter
+								TargetName="Checker"
+								Property="UIElement.Visibility">
+								<Setter.Value>
+									<Visibility>Visible</Visibility>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="main_checker"
+								Property="Shape.Fill">
+								<Setter.Value>
+									<Brush>#27292F</Brush>
+								</Setter.Value>
+							</Setter>
+							<Setter
+								TargetName="main_checker"
+								Property="UIElement.Opacity">
+								<Setter.Value>
+									<System:Double>1</System:Double>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Control.Template>
+		</CheckBox>
+		<Grid
+			Name="TransferSettings"
+			UIElement.Visibility="Hidden"
+			FrameworkElement.Margin="491,50,18,240">
+			<Border
+				CornerRadius="7"
+				Border.Background="#FF1B1C21"
+				FrameworkElement.Width="159" />
+			<Label
+				Name="taskPropertyOne"
+				ContentControl.Content="{DynamicResource m_TaskName}"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontSize="11"
+				Control.FontFamily="{StaticResource Montserrat_500}"
+				Control.HorizontalContentAlignment="Center"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.Margin="0,0,0,137" />
+			<TextBox
+				Name="TransferName"
+				FrameworkElement.Height="22"
+				FrameworkElement.Style="{StaticResource CustomTextBox}"
+				Control.FontFamily="{StaticResource Montserrat_500}"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Margin="10,23,10,115"
+				Control.Background="#FF16171B" />
+			<Label
+				Name="taskPropertyTwo"
+				ContentControl.Content="{DynamicResource m_MasterData}"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontSize="11"
+				Control.FontFamily="{StaticResource Montserrat_500}"
+				Control.HorizontalContentAlignment="Center"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.Margin="0,50,0,87" />
+			<TextBox
+				Name="TransferLogin"
+				AllowDrop="True"
+				FrameworkElement.Height="22"
+				FrameworkElement.Style="{StaticResource CustomTextBox}"
+				Control.FontFamily="{StaticResource Montserrat_500}"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Margin="10,73,10,65"
+				Control.Background="#FF16171B"
+				PreviewDragOver="TextBox_PreviewDragOver"
+				Drop="TextBox_Drop" />
+			<Label
+				Name="taskPropertyThree"
+				ContentControl.Content="{DynamicResource m_MasterToken}"
+				Control.Foreground="#FFFFFFFF"
+				Control.FontSize="11"
+				Control.FontFamily="{StaticResource Montserrat_500}"
+				Control.HorizontalContentAlignment="Center"
+				Control.VerticalContentAlignment="Center"
+				FrameworkElement.Margin="0,100,0,37" />
+			<TextBox
+				Name="TransferToken"
+				FrameworkElement.Height="22"
+				FrameworkElement.Style="{StaticResource CustomTextBox}"
+				Control.FontFamily="{StaticResource Montserrat_500}"
+				Control.HorizontalContentAlignment="Left"
+				FrameworkElement.Margin="10,123,10,15"
+				Control.Background="#FF16171B" />
+		</Grid>
+		<TextBlock
+			Name="masterDataInfo"
+			UIElement.Visibility="Hidden"
+			TextBlock.TextWrapping="Wrap"
+			TextBlock.Text="{DynamicResource m_MasterDataInfo}"
+			Opacity="0.5"
+			TextBlock.Foreground="#FFFFFFFF"
+			TextBlock.FontWeight="Light"
+			TextBlock.FontFamily="Montserrat Light"
+			TextBlock.FontSize="11"
+			LineHeight="13"
+			Padding="3,5,0,5"
+			FrameworkElement.Margin="491,230,20,50" />
+	</Grid>
+</Page>

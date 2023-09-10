@@ -1,0 +1,66 @@
+<Window
+	x:Class="VertigoBoostPanel.UI.windows.SteamInstallation" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:VertigoBoostPanel.UI.windows"
+	AllowsTransparency="True"
+	Title="Old Steam Installation"
+	WindowStyle="None"
+	Topmost="True"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterScreen"
+	FrameworkElement.Height="200"
+	FrameworkElement.Width="350"
+	Control.Background="{x:Null}"
+	Loaded="Window_Loaded">
+	<Grid>
+		<Border
+			Border.Background="#FF16171B"
+			CornerRadius="10" />
+		<Image
+			Image.Source="/Resources/img/logo.png"
+			FrameworkElement.Margin="145,50,145,110" />
+		<TextBlock
+			Name="WelcomeText"
+			TextBlock.Text="Please wait    "
+			TextAlignment="Center"
+			FrameworkElement.HorizontalAlignment="Center"
+			FrameworkElement.Margin="0,130,0,0"
+			FrameworkElement.VerticalAlignment="Top"
+			FrameworkElement.Width="320"
+			TextBlock.Foreground="#FFFFFFFF"
+			TextBlock.FontFamily="Montserrat SemiBold"
+			TextBlock.FontSize="12">
+			<FrameworkElement.Triggers>
+				<EventTrigger
+					RoutedEvent="Window.Loaded">
+					<BeginStoryboard>
+						<Storyboard>
+							<StringAnimationUsingKeyFrames
+								Storyboard.TargetProperty="Text"
+								RepeatBehavior="Forever">
+								<DiscreteStringKeyFrame
+									Value="Please wait    "
+									KeyTime="0:0:0.0" />
+								<DiscreteStringKeyFrame
+									Value="Please wait.   "
+									KeyTime="0:0:1.0" />
+								<DiscreteStringKeyFrame
+									Value="Please wait..  "
+									KeyTime="0:0:2.0" />
+								<DiscreteStringKeyFrame
+									Value="Please wait... "
+									KeyTime="0:0:3.0" />
+								<DiscreteStringKeyFrame
+									Value="Please wait...."
+									KeyTime="0:0:4.0" />
+							</StringAnimationUsingKeyFrames>
+						</Storyboard>
+					</BeginStoryboard>
+				</EventTrigger>
+			</FrameworkElement.Triggers>
+		</TextBlock>
+		<ProgressBar
+			Name="ProgressBar"
+			Control.Background="#FF16171B"
+			FrameworkElement.Margin="30,150,30,30"
+			Control.BorderBrush="{x:Null}" />
+	</Grid>
+</Window>

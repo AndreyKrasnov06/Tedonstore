@@ -1,0 +1,231 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=mscorlib">
+	<v:String
+		x:Key="m_SignIn">Logi sisse</v:String>
+	<v:String
+		x:Key="m_Login">Kasutajanimi</v:String>
+	<v:String
+		x:Key="m_Password">Parool</v:String>
+	<v:String
+		x:Key="m_Home">Avaleht</v:String>
+	<v:String
+		x:Key="m_Accounts">Kontod</v:String>
+	<v:String
+		x:Key="m_Total">Kokku</v:String>
+	<v:String
+		x:Key="m_Prime">Prime</v:String>
+	<v:String
+		x:Key="m_NonPrime">Non-Prime</v:String>
+	<v:String
+		x:Key="m_Ranked">Ranked</v:String>
+	<v:String
+		x:Key="m_Tasks">Ülesanded</v:String>
+	<v:String
+		x:Key="m_InOrder">Töötavad</v:String>
+	<v:String
+		x:Key="m_Finished">Lõpetanud</v:String>
+	<v:String
+		x:Key="m_BoostLogs">Boost palgid</v:String>
+	<v:String
+		x:Key="m_Message_Started">Paneel on avatud</v:String>
+	<v:String
+		x:Key="m_TaskList">Ülesande nimikiri</v:String>
+	<v:String
+		x:Key="m_AccountInfo">Konto teave</v:String>
+	<v:String
+		x:Key="m_SaveAdd">Salvestada/Lisada</v:String>
+	<v:String
+		x:Key="m_Settings">Seaded</v:String>
+	<v:String
+		x:Key="m_Import">Import</v:String>
+	<v:String
+		x:Key="m_Export">Eksport</v:String>
+	<v:String
+		x:Key="m_Start">Ava</v:String>
+	<v:String
+		x:Key="m_Close">Sulge</v:String>
+	<v:String
+		x:Key="m_CloseAll">Sulge kõik</v:String>
+	<v:String
+		x:Key="m_Level">LVL</v:String>
+	<v:String
+		x:Key="m_Wins5x5">Wins 5x5</v:String>
+	<v:String
+		x:Key="m_Wins2x2">Wins 2x2</v:String>
+	<v:String
+		x:Key="m_Rank5x5">Rank 5x5</v:String>
+	<v:String
+		x:Key="m_Rank2x2">Rank 2x2</v:String>
+	<v:String
+		x:Key="m_WinBoost">Win Boost</v:String>
+	<v:String
+		x:Key="m_XPBoost">XP Boost</v:String>
+	<v:String
+		x:Key="m_ClientBoost">Klientide Boost</v:String>
+	<v:String
+		x:Key="m_Calibration">Calibration</v:String>
+	<v:String
+		x:Key="m_GlobalBoost">Global Boost</v:String>
+	<v:String
+		x:Key="m_RankBoost">Rank Boost</v:String>
+	<v:String
+		x:Key="m_CaseFarm">Case Farm</v:String>
+	<v:String
+		x:Key="m_Cancel">Tühista</v:String>
+	<v:String
+		x:Key="m_CreateSession">Luua ülesanne</v:String>
+	<v:String
+		x:Key="m_FirstTeam">Võistkond 1</v:String>
+	<v:String
+		x:Key="m_SecondTeam">Võistkond 2</v:String>
+	<v:String
+		x:Key="m_Options">Valikud</v:String>
+	<v:String
+		x:Key="m_ShortGame">Lühike mäng</v:String>
+	<v:String
+		x:Key="m_AutoMVP">Auto MVP</v:String>
+	<v:String
+		x:Key="m_SwapLeaders">Vahetada juhid</v:String>
+	<v:String
+		x:Key="m_WinLose">Võida/Kaota</v:String>
+	<v:String
+		x:Key="m_SteamPath">Steam kausta</v:String>
+	<v:String
+		x:Key="m_CSGOPath">CS:GO kausta</v:String>
+	<v:String
+		x:Key="m_IdleServerBat">Idle server .bat</v:String>
+	<v:String
+		x:Key="m_PanelSettings">Paneeli seaded</v:String>
+	<v:String
+		x:Key="m_TelegramId">Telegram id</v:String>
+	<v:String
+		x:Key="m_Arguments">Argumendid</v:String>
+	<v:String
+		x:Key="m_MainDisplay">Peamine ekraan</v:String>
+	<v:String
+		x:Key="m_CaseFarmServerIp">Case Farm server ip</v:String>
+	<v:String
+		x:Key="m_Width">Laius</v:String>
+	<v:String
+		x:Key="m_Height">Kõrgus</v:String>
+	<v:String
+		x:Key="m_TasksAtTime">Ülesanded korraga</v:String>
+	<v:String
+		x:Key="m_LoginsForGettingStats">Kasutajanimed statistika saamiseks</v:String>
+	<v:String
+		x:Key="m_WindowAlign">Akna joondamine</v:String>
+	<v:String
+		x:Key="m_MouseInCSGO">Hiir CS:GO-s</v:String>
+	<v:String
+		x:Key="m_UseInviteFromRecent">Kasuta hiljutist kutset</v:String>
+	<v:String
+		x:Key="m_SuspendSteamOverlay">Ilma Steam Overlay-ta</v:String>
+	<v:String
+		x:Key="m_NoGraphicsMode">No-Graphics režiim</v:String>
+	<v:String
+		x:Key="m_BlockServers">Serveri blokeerimine</v:String>
+	<v:String
+		x:Key="m_TickAll">Märkida kõik</v:String>
+	<v:String
+		x:Key="m_ClearAll">Kustuta kõik</v:String>
+	<v:String
+		x:Key="m_ChooseMap5x5">Valida kaart 5x5</v:String>
+	<v:String
+		x:Key="m_ChooseMap2x2">Valida kaart 2x2</v:String>
+	<v:String
+		x:Key="m_ChooseCompetitiveMode">Valida võistlusrežiim</v:String>
+	<v:String
+		x:Key="m_PreventSteamOverlayFromLaunching">Takistada Steam Overlay käivitamist</v:String>
+	<v:String
+		x:Key="m_PreventSteamWebHelperFromLaunching">Takistada Steam Web Helper käivitamist</v:String>
+	<v:String
+		x:Key="m_PreventTextOverlay">See funktsioon takistab protsessi nimega "gameoverlayui.exe" teie arvutis püsivalt käivitamast. Seda saab tagasi võtta.</v:String>
+	<v:String
+		x:Key="m_PreventTextWebHelper">See funktsioon takistab protsessi nimega "steamwebhelper.exe" teie arvutis püsivalt käivitamast. Seda saab tagasi võtta.</v:String>
+	<v:String
+		x:Key="m_DisableNews">Keela CS:GO uudised</v:String>
+	<v:String
+		x:Key="m_DisableNewsText">See funktsioon keelab uudised CS:GO põhilehel. Seda saab tagasi võtta.</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolder">Kustuta kasutajaandmete kaust</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolderText">See funktsioon kustutab kõik konto andmed teie Steami kaustas.</v:String>
+	<v:String
+		x:Key="m_ConfigEditor">Konfiguratsiooniredaktor</v:String>
+	<v:String
+		x:Key="m_Message_Inviting">Kutsun kontosid</v:String>
+	<v:String
+		x:Key="m_Message_Searching">Otsin</v:String>
+	<v:String
+		x:Key="m_Message_GameFound">Mäng on leitud</v:String>
+	<v:String
+		x:Key="m_Message_GameOver">Mäng on läbi</v:String>
+	<v:String
+		x:Key="m_Message_GotItem">sai asja</v:String>
+	<v:String
+		x:Key="m_Stats">Statistika</v:String>
+	<v:String
+		x:Key="m_ClickerWarning">Clicker töötab ainult 383x280 korral.</v:String>
+	<v:String
+		x:Key="m_On">On</v:String>
+	<v:String
+		x:Key="m_Off">Off</v:String>
+	<v:String
+		x:Key="m_SessionName">Seansi nimi</v:String>
+	<v:String
+		x:Key="m_Save">Salvestada</v:String>
+	<v:String
+		x:Key="m_InviteCode">Kutsungi kood</v:String>
+	<v:String
+		x:Key="m_Amount">Kogus</v:String>
+	<v:String
+		x:Key="m_Profile">Profiil</v:String>
+	<v:String
+		x:Key="m_XPGainedPerGame">XP teenitud mängu kohta</v:String>
+	<v:String
+		x:Key="m_CurrentLevel">Praegune tase</v:String>
+	<v:String
+		x:Key="m_XPUntilNextLevel">XP kuni järgmise LVL</v:String>
+	<v:String
+		x:Key="m_CurrentRank5x5">Praegune auaste 5x5</v:String>
+	<v:String
+		x:Key="m_CurrentWins5x5">Praegune võidud 5x5</v:String>
+	<v:String
+		x:Key="m_Message_BoostingClient">Client Boost jätkub</v:String>
+	<v:String
+		x:Key="m_ChooseDefaultTab">Standardne vaste tüüp</v:String>
+	<v:String
+		x:Key="m_CreateAdapterCaption">Looge Etherneti adapter</v:String>
+	<v:String
+		x:Key="m_CreateAdapterText">See funktsioon loob Windowsis täiendava Etherneti adapteri, et ületada CS:GO töötavate koopiate arvu piirang.</v:String>
+	<v:String
+		x:Key="m_CaseFarmInfo">On kontosid, mille laekumine on viimase 7 päeva jooksul langenud. Mida teha?</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunOnly">Jookse ainult puhtalt</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunAll">Käivita kõik</v:String>
+	<v:String
+		x:Key="m_WalkBot">WalkBot</v:String>
+	<v:String
+		x:Key="m_roundAFK">AFK 1 voor</v:String>
+	<v:String
+		x:Key="m_ItemsTransfer">Üksuste ülekandmine</v:String>
+	<v:String
+		x:Key="m_YourGroups">Teie rühmad</v:String>
+	<v:String
+		x:Key="m_TransferLogs">Palkide ülekandmine</v:String>
+	<v:String
+		x:Key="m_TaskName">Ülesande nimi</v:String>
+	<v:String
+		x:Key="m_MasterToken">Peamärk</v:String>
+	<v:String
+		x:Key="m_MasterData">Põhiandmed</v:String>
+	<v:String
+		x:Key="m_MasterDataInfo">Master - konto, mis saab üksusi teiste kontode jaoks, mis on grupis.
+Väljal "Põhiandmed" võivad olla järgmised väärtused: konto sisselogimine, steamid64 (profiili lingilt), steamid32 (sõbra kood). Olemasoleva konto sisselogimise sisestamiseks lihtsalt lohistage seda.</v:String>
+	<v:String
+		x:Key="m_InstallOldSteam">Paigaldage vana aur</v:String>
+	<v:String
+		x:Key="m_LaunchDelay">Käivitamise viivitus</v:String>
+	<v:String
+		x:Key="m_DiscordHook">Discord WebHook</v:String>
+</ResourceDictionary>

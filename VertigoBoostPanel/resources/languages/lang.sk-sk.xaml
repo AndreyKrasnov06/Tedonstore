@@ -1,0 +1,231 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=mscorlib">
+	<v:String
+		x:Key="m_SignIn">Prihlásiť sa</v:String>
+	<v:String
+		x:Key="m_Login">Prihlasovacie meno</v:String>
+	<v:String
+		x:Key="m_Password">Heslo</v:String>
+	<v:String
+		x:Key="m_Home">Domov</v:String>
+	<v:String
+		x:Key="m_Accounts">Učty</v:String>
+	<v:String
+		x:Key="m_Total">Spolu</v:String>
+	<v:String
+		x:Key="m_Prime">Prime</v:String>
+	<v:String
+		x:Key="m_NonPrime">Non-Prime</v:String>
+	<v:String
+		x:Key="m_Ranked">Ranked</v:String>
+	<v:String
+		x:Key="m_Tasks">Úlohy</v:String>
+	<v:String
+		x:Key="m_InOrder">V poradí</v:String>
+	<v:String
+		x:Key="m_Finished">Dokončené</v:String>
+	<v:String
+		x:Key="m_BoostLogs">Boost záznamy</v:String>
+	<v:String
+		x:Key="m_Message_Started">Panel sa spustíl</v:String>
+	<v:String
+		x:Key="m_TaskList">List Úloh</v:String>
+	<v:String
+		x:Key="m_AccountInfo">Informácie o účte</v:String>
+	<v:String
+		x:Key="m_SaveAdd">Uložiť/Pridať</v:String>
+	<v:String
+		x:Key="m_Settings">Nastavenia</v:String>
+	<v:String
+		x:Key="m_Import">Import</v:String>
+	<v:String
+		x:Key="m_Export">Export</v:String>
+	<v:String
+		x:Key="m_Start">Spustiť</v:String>
+	<v:String
+		x:Key="m_Close">Zavrieť</v:String>
+	<v:String
+		x:Key="m_CloseAll">Zavrieť všetko</v:String>
+	<v:String
+		x:Key="m_Level">LVL</v:String>
+	<v:String
+		x:Key="m_Wins5x5">Wins 5x5</v:String>
+	<v:String
+		x:Key="m_Wins2x2">Wins 2x2</v:String>
+	<v:String
+		x:Key="m_Rank5x5">Rank 5x5</v:String>
+	<v:String
+		x:Key="m_Rank2x2">Rank 2x2</v:String>
+	<v:String
+		x:Key="m_WinBoost">Win Boost</v:String>
+	<v:String
+		x:Key="m_XPBoost">XP Boost</v:String>
+	<v:String
+		x:Key="m_ClientBoost">Client Boost</v:String>
+	<v:String
+		x:Key="m_Calibration">Kalibrácia</v:String>
+	<v:String
+		x:Key="m_GlobalBoost">Rank Boost</v:String>
+	<v:String
+		x:Key="m_RankBoost">Auaste Boost</v:String>
+	<v:String
+		x:Key="m_CaseFarm">Case Farm</v:String>
+	<v:String
+		x:Key="m_Cancel">Zrušiť</v:String>
+	<v:String
+		x:Key="m_CreateSession">Vytvoriť skupinu</v:String>
+	<v:String
+		x:Key="m_FirstTeam">Prvý Team</v:String>
+	<v:String
+		x:Key="m_SecondTeam">Druhý Team</v:String>
+	<v:String
+		x:Key="m_Options">Možnosti</v:String>
+	<v:String
+		x:Key="m_ShortGame">Krátka Hra</v:String>
+	<v:String
+		x:Key="m_AutoMVP">Auto MVP</v:String>
+	<v:String
+		x:Key="m_SwapLeaders">Vymeniť leaders</v:String>
+	<v:String
+		x:Key="m_WinLose">Vyhrá/Prehra</v:String>
+	<v:String
+		x:Key="m_SteamPath">Steam zložka</v:String>
+	<v:String
+		x:Key="m_CSGOPath">CS:GO zložka</v:String>
+	<v:String
+		x:Key="m_IdleServerBat">Idle server .bat</v:String>
+	<v:String
+		x:Key="m_PanelSettings">Nastavenia Panela</v:String>
+	<v:String
+		x:Key="m_TelegramId">Telegram id</v:String>
+	<v:String
+		x:Key="m_Arguments">Argumenty</v:String>
+	<v:String
+		x:Key="m_MainDisplay">Hlavny display</v:String>
+	<v:String
+		x:Key="m_CaseFarmServerIp">Case Farm server ip</v:String>
+	<v:String
+		x:Key="m_Width">Šírka</v:String>
+	<v:String
+		x:Key="m_Height">Výška</v:String>
+	<v:String
+		x:Key="m_TasksAtTime">Ulohy do času</v:String>
+	<v:String
+		x:Key="m_LoginsForGettingStats">Prihlásiť sa pre dostávame štatistík</v:String>
+	<v:String
+		x:Key="m_WindowAlign">Zarovnanie okien</v:String>
+	<v:String
+		x:Key="m_MouseInCSGO">Myška v CS:GO</v:String>
+	<v:String
+		x:Key="m_UseInviteFromRecent">Použiť pozvanie z nedávnych</v:String>
+	<v:String
+		x:Key="m_SuspendSteamOverlay">Zakázať Steam Overlay</v:String>
+	<v:String
+		x:Key="m_NoGraphicsMode">Negrafický mod</v:String>
+	<v:String
+		x:Key="m_BlockServers">Zablokovať Servery</v:String>
+	<v:String
+		x:Key="m_TickAll">Označit</v:String>
+	<v:String
+		x:Key="m_ClearAll">Vymazať</v:String>
+	<v:String
+		x:Key="m_ChooseMap5x5">Vyber mapy 5x5</v:String>
+	<v:String
+		x:Key="m_ChooseMap2x2">Vyber mapy 2x2</v:String>
+	<v:String
+		x:Key="m_ChooseCompetitiveMode">Vyber súťažiaceho mod</v:String>
+	<v:String
+		x:Key="m_PreventSteamOverlayFromLaunching">Zabrani Steam Overlay spusteniu</v:String>
+	<v:String
+		x:Key="m_PreventSteamWebHelperFromLaunching">Zabrani Steam Web Helper spusteniu</v:String>
+	<v:String
+		x:Key="m_PreventTextOverlay">Tato funkcia zabrani procesu "gameoverlayui.exe" zabranuje spusteniu z vasho zariadenia. Toto nastavenie je nevratne.</v:String>
+	<v:String
+		x:Key="m_PreventTextWebHelper">Tato funkcia zabrani procesu "steamwebhelper.exe" zabranuje spusteniu z vasho zariadenia. Toto nastavenie je nevratne.</v:String>
+	<v:String
+		x:Key="m_DisableNews">Deaktivacia CS:GO noviniek</v:String>
+	<v:String
+		x:Key="m_DisableNewsText">Tato funkcia deaktivuje novinky a hlavnu stranku CS:GO. Toto nastavenie je nevratne.</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolder">Vymazat použivatelske data</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolderText">Tato funkcia vam odstrani vsetky ulozene pouzivatelske data z vasho Steam Priečinku.</v:String>
+	<v:String
+		x:Key="m_ConfigEditor">Spravca Configuracneho Nastavenia</v:String>
+	<v:String
+		x:Key="m_Message_Inviting">Pozvanie účtov</v:String>
+	<v:String
+		x:Key="m_Message_Searching">Vyhľadávanie</v:String>
+	<v:String
+		x:Key="m_Message_GameFound">Hra sa Našla</v:String>
+	<v:String
+		x:Key="m_Message_GameOver">Hra skončila</v:String>
+	<v:String
+		x:Key="m_Message_GotItem">dostal si vec</v:String>
+	<v:String
+		x:Key="m_Stats">Štatistika pre</v:String>
+	<v:String
+		x:Key="m_ClickerWarning">Kliker funguje iba na 383x280.</v:String>
+	<v:String
+		x:Key="m_On">Vypnúť</v:String>
+	<v:String
+		x:Key="m_Off">Zapnut</v:String>
+	<v:String
+		x:Key="m_SessionName">Názov Skupiny</v:String>
+	<v:String
+		x:Key="m_Save">Uložiť</v:String>
+	<v:String
+		x:Key="m_InviteCode">Pozyvaci kod</v:String>
+	<v:String
+		x:Key="m_Amount">Množstvo</v:String>
+	<v:String
+		x:Key="m_Profile">Profil</v:String>
+	<v:String
+		x:Key="m_XPGainedPerGame">XP získané cez hru</v:String>
+	<v:String
+		x:Key="m_CurrentLevel">Aktuálny Level</v:String>
+	<v:String
+		x:Key="m_XPUntilNextLevel">XP do ďalšieho levelu</v:String>
+	<v:String
+		x:Key="m_CurrentRank5x5">Aktuálny Rank 5x5</v:String>
+	<v:String
+		x:Key="m_CurrentWins5x5">Aktuálne Výhry 5x5</v:String>
+	<v:String
+		x:Key="m_Message_BoostingClient">Podpora klientov pokračuje</v:String>
+	<v:String
+		x:Key="m_ChooseDefaultTab">Štandardný typ zhody</v:String>
+	<v:String
+		x:Key="m_CreateAdapterCaption">Vytvorte ethernetový adaptér</v:String>
+	<v:String
+		x:Key="m_CreateAdapterText">Táto funkcia vytvorí ďalší ethernetový adaptér v systéme Windows, aby sa obišiel limit počtu spustených kópií CS:GO.</v:String>
+	<v:String
+		x:Key="m_CaseFarmInfo">Existujú účty, ktoré za posledných 7 dní zaznamenali pokles. Čo robiť?</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunOnly">Bežať len čisto</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunAll">Spustite všetko</v:String>
+	<v:String
+		x:Key="m_WalkBot">WalkBot</v:String>
+	<v:String
+		x:Key="m_roundAFK">AFK 1 kolo</v:String>
+	<v:String
+		x:Key="m_ItemsTransfer">Prenos položiek</v:String>
+	<v:String
+		x:Key="m_YourGroups">Vaše skupiny</v:String>
+	<v:String
+		x:Key="m_TransferLogs">Prenos denníkov</v:String>
+	<v:String
+		x:Key="m_TaskName">Názov úlohy</v:String>
+	<v:String
+		x:Key="m_MasterToken">Hlavný token</v:String>
+	<v:String
+		x:Key="m_MasterData">Hlavné dáta</v:String>
+	<v:String
+		x:Key="m_MasterDataInfo">Master – účet, ktorý bude získavať položky pre ostatné účty, ktoré sú v skupine.
+Pole „Master data“ môže mať tieto hodnoty: prihlásenie do účtu, steamid64 (z odkazu na profil), steamid32 (kód priateľa). Ak chcete vložiť prihlasovacie meno existujúceho účtu, jednoducho ho potiahnite.</v:String>
+	<v:String
+		x:Key="m_InstallOldSteam">Nainštalujte starú paru</v:String>
+	<v:String
+		x:Key="m_LaunchDelay">Oneskorenie spustenia</v:String>
+	<v:String
+		x:Key="m_DiscordHook">Discord WebHook</v:String>
+</ResourceDictionary>

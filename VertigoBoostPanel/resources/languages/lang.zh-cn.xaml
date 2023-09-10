@@ -1,0 +1,230 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=mscorlib">
+	<v:String
+		x:Key="m_SignIn">登录</v:String>
+	<v:String
+		x:Key="m_Login">账号名</v:String>
+	<v:String
+		x:Key="m_Password">密码</v:String>
+	<v:String
+		x:Key="m_Home">首页</v:String>
+	<v:String
+		x:Key="m_Accounts">账号</v:String>
+	<v:String
+		x:Key="m_Total">全部</v:String>
+	<v:String
+		x:Key="m_Prime">优先</v:String>
+	<v:String
+		x:Key="m_NonPrime">非优先</v:String>
+	<v:String
+		x:Key="m_Ranked">已定级</v:String>
+	<v:String
+		x:Key="m_Tasks">任务</v:String>
+	<v:String
+		x:Key="m_InOrder">运行中</v:String>
+	<v:String
+		x:Key="m_Finished">已完成</v:String>
+	<v:String
+		x:Key="m_BoostLogs">Boost 日志</v:String>
+	<v:String
+		x:Key="m_Message_Started">面板已运行</v:String>
+	<v:String
+		x:Key="m_TaskList">任务列表</v:String>
+	<v:String
+		x:Key="m_AccountInfo">账号信息</v:String>
+	<v:String
+		x:Key="m_SaveAdd">保存/添加</v:String>
+	<v:String
+		x:Key="m_Settings">设置</v:String>
+	<v:String
+		x:Key="m_Import">导入</v:String>
+	<v:String
+		x:Key="m_Export">导出</v:String>
+	<v:String
+		x:Key="m_Start">启动</v:String>
+	<v:String
+		x:Key="m_Close">关闭</v:String>
+	<v:String
+		x:Key="m_CloseAll">关闭所有</v:String>
+	<v:String
+		x:Key="m_Level">等级</v:String>
+	<v:String
+		x:Key="m_Wins5x5">胜场 5x5</v:String>
+	<v:String
+		x:Key="m_Wins2x2">胜场 2x2</v:String>
+	<v:String
+		x:Key="m_Rank5x5">段位 5x5</v:String>
+	<v:String
+		x:Key="m_Rank2x2">段位 2x2</v:String>
+	<v:String
+		x:Key="m_WinBoost">胜场 Boost</v:String>
+	<v:String
+		x:Key="m_XPBoost">经验 Boost</v:String>
+	<v:String
+		x:Key="m_ClientBoost">客户 Boost</v:String>
+	<v:String
+		x:Key="m_Calibration">定级</v:String>
+	<v:String
+		x:Key="m_GlobalBoost">大球 Boost</v:String>
+	<v:String
+		x:Key="m_RankBoost">段位 Boost</v:String>
+	<v:String
+		x:Key="m_CaseFarm">挂箱子</v:String>
+	<v:String
+		x:Key="m_Cancel">取消</v:String>
+	<v:String
+		x:Key="m_CreateSession">创建任务</v:String>
+	<v:String
+		x:Key="m_FirstTeam">第一队</v:String>
+	<v:String
+		x:Key="m_SecondTeam">第二队</v:String>
+	<v:String
+		x:Key="m_Options">选项</v:String>
+	<v:String
+		x:Key="m_ShortGame">短时赛</v:String>
+	<v:String
+		x:Key="m_AutoMVP">获得MVP</v:String>
+	<v:String
+		x:Key="m_SwapLeaders">交换领队</v:String>
+	<v:String
+		x:Key="m_WinLose">赢/输</v:String>
+	<v:String
+		x:Key="m_SteamPath">Steam 目录</v:String>
+	<v:String
+		x:Key="m_CSGOPath">CS:GO 目录</v:String>
+	<v:String
+		x:Key="m_IdleServerBat">挂箱子服务器 .bat</v:String>
+	<v:String
+		x:Key="m_PanelSettings">面板设置</v:String>
+	<v:String
+		x:Key="m_TelegramId">电报 ID</v:String>
+	<v:String
+		x:Key="m_Arguments">启动项</v:String>
+	<v:String
+		x:Key="m_MainDisplay">显示器</v:String>
+	<v:String
+		x:Key="m_CaseFarmServerIp">挂箱子服务器 IP</v:String>
+	<v:String
+		x:Key="m_Width">宽度</v:String>
+	<v:String
+		x:Key="m_Height">高度</v:String>
+	<v:String
+		x:Key="m_TasksAtTime">同时运行任务</v:String>
+	<v:String
+		x:Key="m_LoginsForGettingStats">获取统计数据的账号</v:String>
+	<v:String
+		x:Key="m_WindowAlign">窗口对齐</v:String>
+	<v:String
+		x:Key="m_MouseInCSGO">鼠标在游戏里可操作</v:String>
+	<v:String
+		x:Key="m_UseInviteFromRecent">使用附近的人邀请</v:String>
+	<v:String
+		x:Key="m_SuspendSteamOverlay">关闭Steam Shift+Tab</v:String>
+	<v:String
+		x:Key="m_NoGraphicsMode">Negrafický mod</v:String>
+	<v:String
+		x:Key="m_BlockServers">锁服</v:String>
+	<v:String
+		x:Key="m_TickAll">勾选全部</v:String>
+	<v:String
+		x:Key="m_ClearAll">取消勾选全部</v:String>
+	<v:String
+		x:Key="m_ChooseMap5x5">选择地图 5x5</v:String>
+	<v:String
+		x:Key="m_ChooseMap2x2">选择地图 2x2</v:String>
+	<v:String
+		x:Key="m_ChooseCompetitiveMode">竞技模式</v:String>
+	<v:String
+		x:Key="m_PreventSteamOverlayFromLaunching">阻止 Steam Overlay 进程启动</v:String>
+	<v:String
+		x:Key="m_PreventSteamWebHelperFromLaunching">阻止 Steam Web 进程启动</v:String>
+	<v:String
+		x:Key="m_PreventTextOverlay">该功能将阻止名为 "gameoverlayui.exe" 的进程在您的PC上永久启动这是可以撤销的。</v:String>
+	<v:String
+		x:Key="m_PreventTextWebHelper">该功能将阻止名为 "steamwebhelper.exe" 的进程在您的PC上永久启动这是可以撤销的。</v:String>
+	<v:String
+		x:Key="m_DisableNews">禁用游戏内新闻</v:String>
+	<v:String
+		x:Key="m_DisableNewsText">这个功能将禁用CS:GO主页上的新闻这是可以撤销的。</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolder">清除用户数据文件夹</v:String>
+	<v:String
+		x:Key="m_ClearUserdataFolderText">这个功能会删除你steam文件夹中的所有账户数据。</v:String>
+	<v:String
+		x:Key="m_ConfigEditor">配置编辑</v:String>
+	<v:String
+		x:Key="m_Message_Inviting">邀请账户</v:String>
+	<v:String
+		x:Key="m_Message_Searching">搜索比赛</v:String>
+	<v:String
+		x:Key="m_Message_GameFound">找到对局</v:String>
+	<v:String
+		x:Key="m_Message_GameOver">游戏结束</v:String>
+	<v:String
+		x:Key="m_Message_GotItem">掉落物品</v:String>
+	<v:String
+		x:Key="m_Stats">的统计信息</v:String>
+	<v:String
+		x:Key="m_ClickerWarning">点击器仅在383x280工作</v:String>
+	<v:String
+		x:Key="m_On">开</v:String>
+	<v:String
+		x:Key="m_Off">关</v:String>
+	<v:String
+		x:Key="m_SessionName">会话名称</v:String>
+	<v:String
+		x:Key="m_Save">保存</v:String>
+	<v:String
+		x:Key="m_InviteCode">邀请代码</v:String>
+	<v:String
+		x:Key="m_Amount">数量</v:String>
+	<v:String
+		x:Key="m_Profile">个人主页</v:String>
+	<v:String
+		x:Key="m_XPGainedPerGame">每场获得的经验</v:String>
+	<v:String
+		x:Key="m_CurrentLevel">当前等级</v:String>
+	<v:String
+		x:Key="m_XPUntilNextLevel">下一级需要的经验</v:String>
+	<v:String
+		x:Key="m_CurrentRank5x5">当前竞技段位</v:String>
+	<v:String
+		x:Key="m_CurrentWins5x5">当前竞技胜场</v:String>
+	<v:String
+		x:Key="m_Message_BoostingClient">客户提升继续</v:String>
+	<v:String
+		x:Key="m_ChooseDefaultTab">标准匹配类型</v:String>
+	<v:String
+		x:Key="m_CreateAdapterCaption">创建以太网适配器</v:String>
+	<v:String
+		x:Key="m_CreateAdapterText">此功能将在 Windows 中创建一个额外的以太网适配器，以绕过 CS:GO 运行副本数量的限制。</v:String>
+	<v:String
+		x:Key="m_CaseFarmInfo">在过去7天内，有些账户掉落了箱子。</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunOnly">只运行没有掉落的账户</v:String>
+	<v:String
+		x:Key="m_CaseFarmRunAll">全部运行</v:String>
+	<v:String
+		x:Key="m_WalkBot">步行机器人</v:String>
+	<v:String
+		x:Key="m_roundAFK">挂机 1 回合</v:String>
+	<v:String
+		x:Key="m_ItemsTransfer">转移库存</v:String>
+	<v:String
+		x:Key="m_YourGroups">分组</v:String>
+	<v:String
+		x:Key="m_TransferLogs">转移日志</v:String>
+	<v:String
+		x:Key="m_TaskName">任务名称</v:String>
+	<v:String
+		x:Key="m_MasterToken">主号 token</v:String>
+	<v:String
+		x:Key="m_MasterData">主号 data</v:String>
+	<v:String
+		x:Key="m_MasterDataInfo">主号,它将获取分组中其他帐户的库存."主号 data"可以用账户名,steamid64(来自个人资料链接),steamid32(好友代码).要插入现有的账号的登录名 - 只需要拖动它即可.</v:String>
+	<v:String
+		x:Key="m_InstallOldSteam">安装老版本steam</v:String>
+	<v:String
+		x:Key="m_LaunchDelay">登录延迟</v:String>
+	<v:String
+		x:Key="m_DiscordHook">Discord WebHook</v:String>
+</ResourceDictionary>

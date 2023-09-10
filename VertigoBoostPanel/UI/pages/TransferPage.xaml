@@ -1,0 +1,340 @@
+<Page
+	x:Class="VertigoBoostPanel.UI.pages.TransferPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:VertigoBoostPanel.UI.pages" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/" xmlns:converters="clr-namespace:VertigoBoostPanel.Converters"
+	Title="TransferPage">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<FontFamily
+				x:Key="Montserrat_400">pack://application:,,,/Resources/font/#Montserrat Regular</FontFamily>
+			<FontFamily
+				x:Key="Montserrat_500">pack://application:,,,/Resources/font/#Montserrat Medium</FontFamily>
+			<FontFamily
+				x:Key="Montserrat_600">pack://application:,,,/Resources/font/#Montserrat SemiBold</FontFamily>
+			<Style
+				x:Key="CustomListBoxItemStyle"
+				TargetType="{x:Type ListBoxItem}">
+				<Setter
+					Property="FrameworkElement.FocusVisualStyle"
+					Value="{x:Null}" />
+				<Setter
+					Property="Control.Background"
+					Value="#00FFFFFF" />
+				<Setter
+					Property="Control.HorizontalContentAlignment"
+					Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+				<Setter
+					Property="Control.VerticalContentAlignment"
+					Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+				<Setter
+					Property="Control.Padding"
+					Value="7,0,0,3" />
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ListBoxItem}">
+							<Border
+								Name="Bd"
+								CornerRadius="8"
+								Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+								Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+								Border.Background="{TemplateBinding Control.Background}"
+								Padding="{TemplateBinding Control.Padding}"
+								SnapsToDevicePixels="True">
+								<ContentPresenter
+									FrameworkElement.HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+									SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+									FrameworkElement.VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="ListBoxItem.IsSelected"
+									Value="True">
+									<Setter
+										Property="FrameworkElement.FocusVisualStyle"
+										Value="{x:Null}" />
+									<Setter
+										Property="Control.Foreground"
+										Value="#FFFFFFFF" />
+								</Trigger>
+								<MultiTrigger>
+									<MultiTrigger.Conditions>
+										<Condition
+											Property="ListBoxItem.IsSelected"
+											Value="True" />
+										<Condition
+											Property="Selector.IsSelectionActive"
+											Value="False" />
+									</MultiTrigger.Conditions>
+									<Setter
+										Property="FrameworkElement.FocusVisualStyle"
+										Value="{x:Null}" />
+									<Setter
+										Property="Control.Foreground"
+										Value="#FFFFFFFF" />
+								</MultiTrigger>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="False">
+									<Setter
+										Property="Control.Foreground"
+										Value="#FFFFFFFF" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				x:Key="CustomTextBox"
+				TargetType="{x:Type TextBox}">
+				<Setter
+					Property="Control.Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type TextBox}">
+							<Border
+								Name="border"
+								Border.BorderBrush="{TemplateBinding Control.BorderBrush}"
+								Border.BorderThickness="{TemplateBinding Control.BorderThickness}"
+								Border.Background="{TemplateBinding Control.Background}"
+								SnapsToDevicePixels="True">
+								<ScrollViewer
+									Name="PART_ContentHost"
+									UIElement.Focusable="False"
+									ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+									ScrollViewer.VerticalScrollBarVisibility="Hidden" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="UIElement.IsEnabled"
+									Value="False">
+									<Setter
+										TargetName="border"
+										Property="UIElement.Opacity"
+										Value="0" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										TargetName="border"
+										Property="Border.BorderBrush"
+										Value="{x:Null}" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsFocused"
+									Value="True">
+									<Setter
+										TargetName="border"
+										Property="Border.BorderBrush"
+										Value="{x:Null}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="TextBoxBase.SelectionBrush"
+					Value="#0067C7" />
+				<Setter
+					Property="Control.HorizontalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="Control.VerticalContentAlignment"
+					Value="Center" />
+				<Setter
+					Property="TextBoxBase.VerticalScrollBarVisibility"
+					Value="Disabled" />
+				<Setter
+					Property="ScrollViewer.CanContentScroll"
+					Value="True" />
+				<Setter
+					Property="FrameworkElement.UseLayoutRounding"
+					Value="False" />
+				<Setter
+					Property="TextBox.MaxLines"
+					Value="1" />
+				<Setter
+					Property="UIElement.RenderTransformOrigin"
+					Value="0.496,0.167" />
+				<Setter
+					Property="Control.Padding"
+					Value="4,0,0,0" />
+				<Setter
+					Property="Control.FontFamily"
+					Value="{StaticResource Montserrat_400}" />
+				<Setter
+					Property="Control.BorderThickness"
+					Value="0" />
+				<Setter
+					Property="Control.FontSize"
+					Value="10" />
+				<Setter
+					Property="Control.Background"
+					Value="#FF16171B" />
+				<Setter
+					Property="Control.Foreground"
+					Value="#FFFFFFFF" />
+				<Setter
+					Property="Control.BorderBrush"
+					Value="{x:Null}" />
+			</Style>
+			<converters:BooleanToVisibleConverter
+				x:Key="BooleanToVisibleConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Grid>
+			<Grid>
+				<TextBlock
+					TextBlock.Text="{DynamicResource m_ItemsTransfer}"
+					TextBlock.FontSize="18"
+					TextBlock.Foreground="#FFFFFFFF"
+					FrameworkElement.Width="210"
+					FrameworkElement.Height="22"
+					TextBlock.FontFamily="{StaticResource Montserrat_500}"
+					FrameworkElement.Margin="20,16,0,0"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.HorizontalAlignment="Left" />
+			</Grid>
+			<Grid
+				FrameworkElement.Margin="20,48,19,275">
+				<Border
+					CornerRadius="7"
+					Border.Background="#FF1B1C21" />
+				<TextBlock
+					TextBlock.Text="{DynamicResource m_YourGroups}"
+					FrameworkElement.Margin="10,10,480,111"
+					TextBlock.Foreground="#FFFFFFFF"
+					TextBlock.FontSize="13.5"
+					TextBlock.FontFamily="{StaticResource Montserrat_500}" />
+				<Grid>
+					<Image
+						Cursor="Hand"
+						FrameworkElement.Margin="613,9,10,116"
+						Image.Source="{svgc:SvgImage Source=/Resources/Svg/Right.svg, AppName=VertigoBoostPanel}">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Image}">
+								<Setter
+									Property="UIElement.Opacity"
+									Value="0.5" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="UIElement.Opacity"
+											Value="1.0" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+						<i:Interaction.Triggers>
+							<i:EventTrigger
+								EventName="MouseDown">
+								<i:InvokeCommandAction
+									Command="{Binding pageRight}" />
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</Image>
+					<Image
+						Cursor="Hand"
+						FrameworkElement.Margin="596,9,27,116"
+						Image.Source="{svgc:SvgImage Source=/Resources/Svg/Left.svg, AppName=VertigoBoostPanel}">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Image}">
+								<Setter
+									Property="UIElement.Opacity"
+									Value="0.5" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="UIElement.Opacity"
+											Value="1.0" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+						<i:Interaction.Triggers>
+							<i:EventTrigger
+								EventName="MouseDown">
+								<i:InvokeCommandAction
+									Command="{Binding pageLeft}" />
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</Image>
+					<Image
+						Cursor="Hand"
+						FrameworkElement.Width="16"
+						FrameworkElement.Height="16"
+						FrameworkElement.Margin="570,7,45,114"
+						Image.Source="{svgc:SvgImage Source=/Resources/Svg/Plus.svg, AppName=VertigoBoostPanel}">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Image}">
+								<Setter
+									Property="UIElement.Opacity"
+									Value="0.5" />
+								<Style.Triggers>
+									<Trigger
+										Property="UIElement.IsMouseOver"
+										Value="True">
+										<Setter
+											Property="UIElement.Opacity"
+											Value="1.0" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+						<i:Interaction.Triggers>
+							<i:EventTrigger
+								EventName="MouseDown">
+								<i:InvokeCommandAction
+									Command="{Binding CreateTask}" />
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</Image>
+				</Grid>
+				<Grid
+					Name="TasksGrid" />
+			</Grid>
+			<Grid
+				FrameworkElement.Margin="20,201,19,17">
+				<Border
+					CornerRadius="7"
+					Border.Background="#FF1B1C21" />
+				<TextBlock
+					TextBlock.Text="{DynamicResource m_TransferLogs}"
+					FrameworkElement.Margin="10,10,490,216"
+					TextBlock.Foreground="#FFFFFFFF"
+					TextBlock.FontSize="13.5"
+					TextBlock.FontFamily="{StaticResource Montserrat_500}" />
+				<ListBox
+					Name="transferLogsBox"
+					ItemsControl.ItemContainerStyle="{DynamicResource CustomListBoxItemStyle}"
+					FrameworkElement.HorizontalAlignment="Center"
+					ScrollViewer.VerticalScrollBarVisibility="Hidden"
+					ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+					FrameworkElement.Height="208"
+					FrameworkElement.Margin="0,29,0,0"
+					FrameworkElement.VerticalAlignment="Top"
+					FrameworkElement.Width="631"
+					RenderTransformOrigin="0.5,0.5"
+					Control.Background="{x:Null}"
+					Control.BorderBrush="{x:Null}"
+					Control.Foreground="{x:Null}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel
+								Orientation="Horizontal" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ListBox>
+			</Grid>
+		</Grid>
+	</Grid>
+</Page>
